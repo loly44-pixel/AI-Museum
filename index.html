@@ -1,0 +1,649 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>REALITY.exe</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg: #070914;
+  --card: #101526;
+  --text: #f4f5ff;
+  --muted: #a2a8c1;
+  --blue: #7c8cff;
+  --purple: #b18cff;
+  --border: rgba(255,255,255,.12);
+}
+
+body {
+  font-family: 'Space Grotesk', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  width: 500px;
+  height: 500px;
+  background: #5c48ff;
+  filter: blur(180px);
+  opacity: .17;
+  top: -180px;
+  left: -150px;
+  pointer-events: none;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  width: 450px;
+  height: 450px;
+  background: #008cff;
+  filter: blur(180px);
+  opacity: .12;
+  bottom: -200px;
+  right: -150px;
+  pointer-events: none;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 7%;
+  border-bottom: 1px solid var(--border);
+  position: relative;
+  z-index: 2;
+}
+
+.logo {
+  font-weight: 700;
+  letter-spacing: 2px;
+  font-size: 17px;
+}
+
+.logo span {
+  color: var(--blue);
+}
+
+.lang {
+  border: 1px solid var(--border);
+  color: white;
+  background: rgba(255,255,255,.05);
+  border-radius: 30px;
+  padding: 9px 17px;
+}
+
+.hero {
+  min-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 70px 20px;
+  position: relative;
+}
+
+.eyebrow {
+  color: var(--blue);
+  letter-spacing: 4px;
+  font-size: 12px;
+  margin-bottom: 25px;
+}
+
+h1 {
+  font-size: clamp(50px, 10vw, 110px);
+  line-height: .95;
+  letter-spacing: -5px;
+  font-weight: 700;
+}
+
+h1 span {
+  color: transparent;
+  -webkit-text-stroke: 1px #a7afff;
+}
+
+.hero p {
+  max-width: 550px;
+  color: var(--muted);
+  line-height: 1.8;
+  margin: 28px 0;
+}
+
+.primary {
+  background: linear-gradient(110deg, var(--blue), var(--purple));
+  color: #080a15;
+  border: 0;
+  padding: 15px 25px;
+  border-radius: 40px;
+  font-weight: 700;
+  transition: .25s;
+}
+
+.primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 35px #7c8cff55;
+}
+
+.scroll {
+  position: absolute;
+  bottom: 25px;
+  color: #707791;
+  font-size: 11px;
+  letter-spacing: 3px;
+}
+
+section {
+  padding: 100px 8%;
+  position: relative;
+}
+
+.section-label {
+  color: var(--blue);
+  letter-spacing: 3px;
+  font-size: 11px;
+  margin-bottom: 15px;
+}
+
+h2 {
+  font-size: clamp(30px, 5vw, 55px);
+  letter-spacing: -2px;
+  margin-bottom: 20px;
+}
+
+.description {
+  color: var(--muted);
+  line-height: 1.8;
+  max-width: 650px;
+}
+
+.experiment {
+  max-width: 850px;
+  margin: 45px auto 0;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 25px;
+  padding: 35px;
+  text-align: center;
+}
+
+.orb {
+  width: 180px;
+  height: 180px;
+  margin: 10px auto 30px;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 30% 25%, #fff 0%, #c2caff 3%, #777aff 18%, #3933a7 45%, #15162f 70%);
+  box-shadow:
+    0 0 30px #716dff66,
+    0 0 100px #6e6aff22;
+  animation: float 4s ease-in-out infinite;
+  position: relative;
+}
+
+.orb::after {
+  content: "";
+  position: absolute;
+  inset: -15px;
+  border: 1px solid #9da5ff33;
+  border-radius: 50%;
+  transform: rotateX(65deg);
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0); }
+  50% { transform: translateY(-12px) rotate(5deg); }
+}
+
+.question {
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+.small {
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 25px;
+  line-height: 1.7;
+}
+
+.choices {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.choice {
+  background: #171d32;
+  border: 1px solid var(--border);
+  color: white;
+  border-radius: 14px;
+  padding: 13px 22px;
+  transition: .2s;
+}
+
+.choice:hover {
+  border-color: var(--blue);
+  transform: translateY(-2px);
+}
+
+.result {
+  display: none;
+  margin-top: 25px;
+  padding: 20px;
+  border-radius: 15px;
+  background: #080c19;
+  color: var(--muted);
+  line-height: 1.8;
+}
+
+.result strong {
+  color: var(--blue);
+  display: block;
+  margin-bottom: 8px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-top: 40px;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 27px;
+  transition: .3s;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  border-color: #7c8cff66;
+}
+
+.card .number {
+  color: var(--blue);
+  font-size: 12px;
+  letter-spacing: 2px;
+}
+
+.card h3 {
+  margin: 18px 0 12px;
+  font-size: 22px;
+}
+
+.card p {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.discovery {
+  border: 1px solid var(--border);
+  border-radius: 25px;
+  padding: 40px;
+  margin-top: 35px;
+  background: linear-gradient(120deg, #11162a, #0b0e1b);
+}
+
+.discovery p {
+  color: var(--muted);
+  line-height: 1.9;
+}
+
+.reflection {
+  margin-top: 35px;
+  padding: 30px;
+  border-left: 2px solid var(--blue);
+  background: #101526;
+  border-radius: 0 18px 18px 0;
+}
+
+.reflection p {
+  color: var(--muted);
+  line-height: 1.9;
+}
+
+.sources {
+  margin-top: 25px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.sources a {
+  color: #aab4ff;
+  font-size: 13px;
+}
+
+footer {
+  text-align: center;
+  padding: 35px 20px;
+  border-top: 1px solid var(--border);
+  color: #777f9b;
+  font-size: 12px;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(25px);
+  transition: .7s;
+}
+
+.reveal.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+[dir="rtl"] {
+  font-family: Tahoma, Arial, sans-serif;
+}
+
+[dir="rtl"] .reflection {
+  border-left: 0;
+  border-right: 2px solid var(--blue);
+  border-radius: 18px 0 0 18px;
+}
+
+@media(max-width: 750px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  section {
+    padding: 75px 6%;
+  }
+
+  .experiment {
+    padding: 25px 18px;
+  }
+
+  h1 {
+    letter-spacing: -2px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <!-- Brand remains English -->
+  <div class="logo">REALITY<span>.exe</span></div>
+
+  <button class="lang" onclick="toggleLanguage()" id="langButton">
+    EN / AR
+  </button>
+</nav>
+
+<!-- HERO: project name and headline remain English -->
+<header class="hero">
+  <div class="eyebrow" data-en="AN INTERACTIVE AI EXPERIENCE"
+       data-ar="تجربة تفاعلية عن الذكاء الاصطناعي">
+    AN INTERACTIVE AI EXPERIENCE
+  </div>
+
+  <h1>WHAT IS<br><span>REAL?</span></h1>
+
+  <p data-en="We live in a world where technology can learn, create, and make decisions. But how much do we really understand about it?"
+     data-ar="نعيش في عالم تستطيع فيه التقنية التعلم والإبداع واتخاذ القرارات. لكن كم نفهم عنها فعلًا؟">
+    We live in a world where technology can learn, create, and make decisions.
+    But how much do we really understand about it?
+  </p>
+
+  <button class="primary" onclick="document.getElementById('experiment').scrollIntoView({behavior:'smooth'})"
+    data-en="ENTER THE EXPERIENCE ↗"
+    data-ar="ابدئي التجربة ↗">
+    ENTER THE EXPERIENCE ↗
+  </button>
+
+  <div class="scroll" data-en="SCROLL TO EXPLORE ↓" data-ar="انزلي لاستكشاف التجربة ↓">
+    SCROLL TO EXPLORE ↓
+  </div>
+</header>
+
+<!-- PART 1 -->
+<section id="experiment" class="reveal">
+  <div class="section-label">01 / AI IN MY WORDS</div>
+
+  <h2 data-en="AI, in simple words." data-ar="الذكاء الاصطناعي بكلماتي.">
+    AI, in simple words.
+  </h2>
+
+  <p class="description"
+     data-en="Artificial Intelligence is technology that allows computers to learn from information, recognize patterns, and help people solve problems or complete tasks."
+     data-ar="الذكاء الاصطناعي هو تقنية تساعد الكمبيوتر على التعلم من المعلومات، واكتشاف الأنماط، ومساعدة الناس في حل المشكلات أو إنجاز المهام.">
+    Artificial Intelligence is technology that allows computers to learn from information,
+    recognize patterns, and help people solve problems or complete tasks.
+  </p>
+
+  <div class="experiment">
+    <div class="orb"></div>
+
+    <div class="question"
+      data-en="How do you think this visual was made?"
+      data-ar="كيف تعتقدين أن هذا الشكل تم تصميمه؟">
+      How do you think this visual was made?
+    </div>
+
+    <div class="small"
+      data-en="Take a guess. There is no trick."
+      data-ar="اختاري إجابتك. ما فيه خدعة.">
+      Take a guess. There is no trick.
+    </div>
+
+    <div class="choices">
+      <button class="choice" onclick="answer('ai')"
+        data-en="AI generated"
+        data-ar="أنشأه الذكاء الاصطناعي">
+        AI generated
+      </button>
+
+      <button class="choice" onclick="answer('code')"
+        data-en="Written with code"
+        data-ar="تم تصميمه بالكود">
+        Written with code
+      </button>
+    </div>
+
+    <div class="result" id="answerResult">
+      <strong id="answerTitle"></strong>
+      <span id="answerText"></span>
+    </div>
+  </div>
+</section>
+
+<!-- PART 2 -->
+<section class="reveal">
+  <div class="section-label">02 / AI AROUND US</div>
+
+  <h2 data-en="AI is already here." data-ar="الذكاء الاصطناعي حولنا.">
+    AI is already here.
+  </h2>
+
+  <p class="description"
+     data-en="AI is not only something we see in movies. It is used in everyday services to support people and make some tasks easier."
+     data-ar="الذكاء الاصطناعي ليس مجرد شيء نشاهده في الأفلام، بل يُستخدم في خدمات يومية لمساعدة الناس وتسهيل بعض المهام.">
+    AI is not only something we see in movies. It is used in everyday services
+    to support people and make some tasks easier.
+  </p>
+
+  <div class="grid">
+
+    <div class="card">
+      <div class="number">01 / EDUCATION</div>
+      <h3 data-en="Learning" data-ar="التعليم">Learning</h3>
+      <p data-en="AI learning tools can explain topics, provide practice questions, and give students feedback."
+         data-ar="تساعد أدوات الذكاء الاصطناعي في شرح المواضيع، وتقديم أسئلة تدريبية، وإعطاء الطلاب ملاحظات.">
+        AI learning tools can explain topics, provide practice questions,
+        and give students feedback.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="number">02 / HEALTHCARE</div>
+      <h3 data-en="Healthcare" data-ar="الرعاية الصحية">Healthcare</h3>
+      <p data-en="AI can help medical professionals analyze images and information to support their work."
+         data-ar="يمكن للذكاء الاصطناعي مساعدة المختصين في تحليل الصور والمعلومات لدعم عملهم.">
+        AI can help medical professionals analyze images and information
+        to support their work.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="number">03 / TRANSPORTATION</div>
+      <h3 data-en="Transportation" data-ar="النقل">Transportation</h3>
+      <p data-en="AI can help navigation systems estimate traffic and suggest routes based on available information."
+         data-ar="يساعد الذكاء الاصطناعي أنظمة الملاحة في تقدير حركة المرور واقتراح الطرق بناءً على المعلومات المتاحة.">
+        AI can help navigation systems estimate traffic and suggest routes
+        based on available information.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- PART 3 -->
+<section class="reveal">
+  <div class="section-label">03 / WHAT SURPRISED ME</div>
+
+  <h2 data-en="The surprising part." data-ar="الشيء الذي فاجأني.">
+    The surprising part.
+  </h2>
+
+  <div class="discovery">
+    <p data-en="What surprised me most is that AI does not understand the world exactly like a human. It learns patterns from data and uses them to produce answers or predictions. This made me realize that AI can be useful, but its results still need human review."
+       data-ar="أكثر شيء فاجأني هو أن الذكاء الاصطناعي لا يفهم العالم تمامًا مثل الإنسان. فهو يتعلم الأنماط من البيانات ويستخدمها لإنتاج إجابات أو توقعات. وهذا جعلني أدرك أنه مفيد، لكن نتائجه ما زالت تحتاج إلى مراجعة بشرية.">
+      What surprised me most is that AI does not understand the world exactly
+      like a human. It learns patterns from data and uses them to produce
+      answers or predictions. This made me realize that AI can be useful,
+      but its results still need human review.
+    </p>
+  </div>
+</section>
+
+<!-- PART 4 -->
+<section class="reveal">
+  <div class="section-label">04 / HOW AI HELPED ME</div>
+
+  <h2 data-en="My process." data-ar="كيف ساعدني الذكاء الاصطناعي.">
+    My process.
+  </h2>
+
+  <p class="description"
+     data-en="I used ChatGPT to brainstorm ideas, organize the project, and help me write and improve the website code. I chose the concept, reviewed the content, and customized the design and interactive parts."
+     data-ar="استخدمت ChatGPT لاقتراح الأفكار وتنظيم المشروع ومساعدتي في كتابة الكود وتحسينه. اخترت الفكرة، وراجعت المحتوى، وعدلت التصميم والأجزاء التفاعلية.">
+    I used ChatGPT to brainstorm ideas, organize the project, and help me write
+    and improve the website code. I chose the concept, reviewed the content,
+    and customized the design and interactive parts.
+  </p>
+
+  <div class="reflection">
+    <div class="number">MY TAKEAWAY</div>
+
+    <p data-en="AI helped me work on my idea, but the final experience reflects my own choices and the changes I made."
+       data-ar="ساعدني الذكاء الاصطناعي في تطوير فكرتي، لكن التجربة النهائية تعكس اختياراتي والتعديلات التي أجريتها.">
+      AI helped me work on my idea, but the final experience reflects
+      my own choices and the changes I made.
+    </p>
+  </div>
+
+  <div class="sources">
+    <a href="https://www.ibm.com/think/topics/artificial-intelligence" target="_blank">
+      IBM / Artificial Intelligence ↗
+    </a>
+
+    <a href="https://www.who.int/health-topics/digital-health" target="_blank">
+      WHO / Digital Health ↗
+    </a>
+
+    <a href="https://www.unesco.org/en/artificial-intelligence" target="_blank">
+      UNESCO / AI ↗
+    </a>
+  </div>
+</section>
+
+<footer>
+  <div class="logo">REALITY<span>.exe</span></div>
+  <p style="margin-top:12px;">AI THROUGH MY EYES · CREATIVE EXPLORATION</p>
+</footer>
+
+<script>
+let currentLanguage = "en";
+
+function toggleLanguage() {
+  currentLanguage = currentLanguage === "en" ? "ar" : "en";
+
+  document.documentElement.lang = currentLanguage;
+  document.documentElement.dir = currentLanguage === "ar" ? "rtl" : "ltr";
+
+  document.querySelectorAll("[data-en]").forEach(element => {
+    element.textContent = element.dataset[currentLanguage];
+  });
+
+  document.getElementById("langButton").textContent =
+    currentLanguage === "en" ? "EN / AR" : "AR / EN";
+}
+
+function answer(choice) {
+  const result = document.getElementById("answerResult");
+  const title = document.getElementById("answerTitle");
+  const text = document.getElementById("answerText");
+
+  result.style.display = "block";
+
+  if (choice === "code") {
+    title.textContent = currentLanguage === "en"
+      ? "Correct! This visual was made with CSS."
+      : "صحيح! هذا الشكل تم تصميمه باستخدام CSS.";
+
+    text.textContent = currentLanguage === "en"
+      ? "The orb is a simple example of a human-written code visual. CSS creates its colors, shape, and animation. This shows that not every digital visual is made by AI."
+      : "هذا الشكل مثال بسيط على تصميم بالكود الذي كتبه الإنسان. استخدمنا CSS لإنشاء الألوان والشكل والحركة. وهذا يوضح أن ليس كل تصميم رقمي مصنوع بالذكاء الاصطناعي.";
+  } else {
+    title.textContent = currentLanguage === "en"
+      ? "Not this time!"
+      : "مو هذه المرة!";
+
+    text.textContent = currentLanguage === "en"
+      ? "This visual was created with CSS code, not generated by AI. A person wrote the code and designed the effect."
+      : "هذا الشكل تم إنشاؤه باستخدام CSS وليس بالذكاء الاصطناعي. شخص كتب الكود وصمم التأثير.";
+  }
+}
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("show");
+    }
+  });
+}, { threshold: 0.12 });
+
+document.querySelectorAll(".reveal").forEach(section => {
+  observer.observe(section);
+});
+</script>
+
+</body>
+</html>
