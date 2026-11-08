@@ -2,14 +2,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Room 01 | The AI Mirror</title>
 
-<style>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 
+<style>
 * {
   margin: 0;
   padding: 0;
@@ -17,257 +16,373 @@
 }
 
 body {
-  background: #10141c;
-  color: #f5f0e6;
-  font-family: Georgia, serif;
+  background: #090d13;
+  color: #f2eee5;
+  font-family: 'DM Sans', sans-serif;
   min-height: 100vh;
 }
 
 header {
+  padding: 25px 8%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 25px 8%;
-  border-bottom: 1px solid #303540;
+  border-bottom: 1px solid #ffffff12;
 }
 
 .logo {
-  color: #d8b879;
-  font-size: 13px;
-  letter-spacing: 4px;
+  color: #d7b779;
+  font-size: 12px;
+  letter-spacing: 3px;
 }
 
-header a {
-  color: #b8bdc8;
-  text-decoration: none;
+.room-number {
+  color: #777c84;
   font-size: 11px;
   letter-spacing: 2px;
 }
 
 main {
-  min-height: 85vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 50px 20px;
-  background:
-    radial-gradient(
-      ellipse at center,
-      #293747,
-      #10141c 75%
-    );
-}
-
-.container {
-  max-width: 800px;
-  width: 100%;
-  text-align: center;
+  max-width: 1050px;
+  margin: auto;
+  padding: 65px 25px;
 }
 
 .label {
-  color: #d8b879;
+  color: #d7b779;
   font-size: 11px;
-  letter-spacing: 5px;
-  margin-bottom: 25px;
+  letter-spacing: 4px;
+  margin-bottom: 18px;
 }
 
 h1 {
-  font-size: clamp(45px, 8vw, 75px);
-  font-weight: normal;
-  line-height: 1.1;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(48px, 8vw, 86px);
+  font-weight: 400;
+  line-height: 0.95;
+  margin-bottom: 25px;
 }
 
 h1 span {
-  color: #d8b879;
+  color: #d7b779;
   font-style: italic;
 }
 
 .intro {
-  color: #aeb5c1;
-  max-width: 600px;
-  margin: 25px auto 40px;
+  max-width: 570px;
+  color: #a7a9ad;
   font-size: 14px;
-  line-height: 2;
+  line-height: 1.9;
 }
 
-.exhibit {
-  border: 1px solid #424958;
-  background: rgba(20, 26, 36, 0.8);
-  padding: 35px;
-  text-align: left;
+.mirror {
+  margin: 55px auto;
+  max-width: 760px;
+  border: 1px solid #d7b77945;
+  background: linear-gradient(135deg, #171c24, #0d1118);
+  padding: 45px;
+  position: relative;
+  text-align: center;
 }
 
-.exhibit-label {
-  color: #d8b879;
-  font-size: 10px;
+.mirror::before {
+  content: "";
+  position: absolute;
+  inset: 12px;
+  border: 1px solid #ffffff0a;
+  pointer-events: none;
+}
+
+.mirror-label {
+  color: #d7b779;
   letter-spacing: 3px;
-  margin-bottom: 20px;
+  font-size: 10px;
+  margin-bottom: 25px;
 }
 
-.exhibit h2 {
-  font-size: 27px;
-  font-weight: normal;
-  margin-bottom: 20px;
+.mirror h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 35px;
+  font-weight: 400;
+  margin-bottom: 18px;
 }
 
-.exhibit p {
-  color: #b8bdc8;
+.mirror p {
+  color: #b6b8bc;
+  line-height: 1.9;
   font-size: 14px;
-  line-height: 2;
+  max-width: 530px;
+  margin: auto;
 }
 
-.quote {
-  margin-top: 25px;
-  padding-left: 20px;
-  border-left: 2px solid #d8b879;
-  color: #e5d2ad;
-  font-style: italic;
-  font-size: 15px;
+.question {
+  margin-top: 55px;
+  text-align: center;
+}
+
+.question h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 36px;
+  font-weight: 400;
+  margin-bottom: 12px;
+}
+
+.question p {
+  color: #999da5;
+  font-size: 13px;
+  margin-bottom: 25px;
+}
+
+.choices {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.choice {
+  background: transparent;
+  border: 1px solid #ffffff25;
+  color: #d9d9d9;
+  padding: 14px 22px;
+  font-family: inherit;
+  font-size: 12px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.choice:hover {
+  border-color: #d7b779;
+  color: #d7b779;
+}
+
+.choice.active {
+  background: #d7b779;
+  color: #090d13;
+  border-color: #d7b779;
+}
+
+.reveal {
+  display: none;
+  margin: 30px auto 0;
+  max-width: 600px;
+  padding: 25px;
+  border-left: 2px solid #d7b779;
+  background: #ffffff08;
+  text-align: left;
+  animation: appear 0.5s ease;
+}
+
+.reveal.show {
+  display: block;
+}
+
+.reveal h3 {
+  color: #d7b779;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 25px;
+  font-weight: 400;
+  margin-bottom: 10px;
+}
+
+.reveal p {
+  color: #b6b8bc;
+  font-size: 13px;
   line-height: 1.8;
 }
 
-.navigation {
+.bottom {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   gap: 15px;
-  margin-top: 35px;
+  margin-top: 70px;
+  padding-top: 25px;
+  border-top: 1px solid #ffffff15;
 }
 
-.button {
-  display: inline-block;
-  padding: 15px 22px;
+.nav-link {
   text-decoration: none;
-  font-size: 10px;
+  color: #d7b779;
+  font-size: 12px;
   letter-spacing: 1px;
   transition: 0.3s;
 }
 
+.nav-link:hover {
+  color: white;
+}
+
 .back {
-  color: #d8b879;
-  border: 1px solid #d8b879;
+  color: #777c84;
 }
 
-.next {
-  background: #d8b879;
-  color: #10141c;
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.button:hover {
-  transform: translateY(-3px);
-}
-
-footer {
-  text-align: center;
-  padding: 20px;
-  color: #747d8b;
-  font-size: 10px;
-  letter-spacing: 2px;
-}
-
-@media (max-width: 500px) {
-
+@media (max-width: 600px) {
   header {
-    padding: 22px 6%;
+    padding: 20px;
   }
 
-  .exhibit {
-    padding: 25px;
+  main {
+    padding: 45px 20px;
   }
 
-  .navigation {
-    flex-direction: column;
+  .mirror {
+    padding: 35px 25px;
   }
 
-  .button {
-    text-align: center;
+  .mirror h2 {
+    font-size: 29px;
   }
 
+  .bottom {
+    margin-top: 50px;
+  }
 }
-
 </style>
-
 </head>
 
 <body>
 
 <header>
-
-  <div class="logo">
-    AI MUSEUM
-  </div>
-
-  <a href="index.html">
-    THE ENTRANCE
-  </a>
-
+  <div class="logo">AI THROUGH MY EYES</div>
+  <div class="room-number">ROOM 01 / 04</div>
 </header>
 
 <main>
 
-  <div class="container">
+  <div class="label">THE AI MIRROR</div>
 
-    <div class="label">
-      ROOM 01 · THE AI MIRROR
-    </div>
+  <h1>What is <span>AI?</span></h1>
 
-    <h1>
-      What is<br>
-      <span>AI?</span>
-    </h1>
+  <p class="intro">
+    Before exploring the world of artificial intelligence,
+    let's look at what it means through my own understanding.
+  </p>
 
-    <p class="intro">
-      Before exploring the world of artificial intelligence,
-      let's discover what it means to me.
+  <section class="mirror">
+
+    <div class="mirror-label">MY PERSONAL DEFINITION</div>
+
+    <h2>AI is more than a machine.</h2>
+
+    <p>
+      In my own words, artificial intelligence is a technology
+      that helps computers learn from information, recognize patterns,
+      and do tasks that usually need human thinking.
+      It can help us solve problems, understand things,
+      and create new ideas.
     </p>
 
-    <div class="exhibit">
+  </section>
 
-      <div class="exhibit-label">
-        EXHIBIT 001 · MY UNDERSTANDING
-      </div>
+  <section class="question">
 
-      <h2>AI in My Words</h2>
+    <div class="label">A MOMENT OF REFLECTION</div>
 
-      <p>
-        To me, artificial intelligence is a technology
-        that helps computers learn from information,
-        recognize patterns, and perform tasks
-        that usually need human thinking.
+    <h2>What makes AI intelligent?</h2>
 
-        It can help us solve problems,
-        understand information, and make
-        everyday activities easier.
-      </p>
+    <p>
+      Choose the idea that you think best describes AI.
+    </p>
 
-      <div class="quote">
-        AI is not just about technology.
-        It is about discovering new ways
-        to think, learn, and create.
-      </div>
+    <div class="choices">
+
+      <button class="choice" onclick="reveal('learn', this)">
+        Learning from data
+      </button>
+
+      <button class="choice" onclick="reveal('think', this)">
+        Thinking like a human
+      </button>
+
+      <button class="choice" onclick="reveal('magic', this)">
+        Making things happen
+      </button>
+
+    </div>
+
+    <div class="reveal" id="reveal">
+
+      <h3 id="answerTitle"></h3>
+
+      <p id="answerText"></p>
 
     </div>
 
-    <div class="navigation">
+  </section>
 
-      <a href="index.html" class="button back">
-        ← BACK TO ENTRANCE
-      </a>
+  <div class="bottom">
 
-      <a href="room2.html" class="button next">
-        NEXT ROOM →
-      </a>
+    <a class="nav-link back" href="index.html">
+      ← THE ENTRANCE
+    </a>
 
-    </div>
+    <a class="nav-link" href="room2.html">
+      NEXT ROOM → 
+    </a>
 
   </div>
 
 </main>
 
-<footer>
+<script>
+function reveal(type, button) {
 
-  AI THROUGH MY EYES · ROOM 01
+  const box = document.getElementById("reveal");
+  const title = document.getElementById("answerTitle");
+  const text = document.getElementById("answerText");
 
-</footer>
+  document.querySelectorAll(".choice").forEach(function(item) {
+    item.classList.remove("active");
+  });
+
+  button.classList.add("active");
+
+  if (type === "learn") {
+
+    title.textContent = "Exactly — learning from data.";
+
+    text.textContent =
+      "AI systems use data to find patterns and improve their ability " +
+      "to perform tasks. This is one important way many AI systems work.";
+
+  }
+
+  if (type === "think") {
+
+    title.textContent = "A fascinating idea.";
+
+    text.textContent =
+      "AI can perform tasks that seem intelligent, but it does not " +
+      "necessarily think or understand the world the same way humans do.";
+
+  }
+
+  if (type === "magic") {
+
+    title.textContent = "It may feel like magic.";
+
+    text.textContent =
+      "AI can create surprising results, but those results come from " +
+      "computational methods, data, and patterns — not magic.";
+
+  }
+
+  box.classList.add("show");
+
+}
+</script>
 
 </body>
 </html>
