@@ -1,0 +1,440 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Room 03 | The Unexpected</title>
+
+<style>
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #10141c;
+  color: #f5f0e6;
+  font-family: Georgia, serif;
+  min-height: 100vh;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 8%;
+  border-bottom: 1px solid #303540;
+}
+
+.logo {
+  color: #d8b879;
+  font-size: 13px;
+  letter-spacing: 4px;
+}
+
+header a {
+  color: #b8bdc8;
+  text-decoration: none;
+  font-size: 11px;
+  letter-spacing: 2px;
+}
+
+main {
+  min-height: 85vh;
+  padding: 65px 8%;
+  background:
+    radial-gradient(ellipse at center, #293747, #10141c 75%);
+}
+
+.intro {
+  text-align: center;
+  max-width: 750px;
+  margin: 0 auto 50px;
+}
+
+.label {
+  color: #d8b879;
+  font-size: 11px;
+  letter-spacing: 5px;
+  margin-bottom: 25px;
+}
+
+h1 {
+  font-size: clamp(45px, 8vw, 80px);
+  font-weight: normal;
+  line-height: 1.1;
+}
+
+h1 span {
+  color: #d8b879;
+  font-style: italic;
+}
+
+.intro p {
+  color: #aeb5c1;
+  font-size: 14px;
+  line-height: 2;
+  margin-top: 25px;
+}
+
+.discovery {
+  max-width: 850px;
+  margin: auto;
+  border: 1px solid #424958;
+  background: #171d27;
+  padding: 40px;
+}
+
+.discovery-number {
+  color: #d8b879;
+  font-size: 10px;
+  letter-spacing: 3px;
+}
+
+.discovery h2 {
+  font-size: 30px;
+  font-weight: normal;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.discovery p {
+  color: #b8bdc8;
+  font-size: 14px;
+  line-height: 2;
+}
+
+.experiment {
+  margin-top: 35px;
+  padding: 30px;
+  background: #10141c;
+  border: 1px solid #343b48;
+}
+
+.experiment h3 {
+  color: #d8b879;
+  font-weight: normal;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.example {
+  padding: 18px;
+  border: 1px solid #343b48;
+  margin-bottom: 12px;
+  color: #d7dbe3;
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.example strong {
+  color: #d8b879;
+}
+
+.reveal-button {
+  padding: 14px 22px;
+  margin-top: 15px;
+  background: #d8b879;
+  color: #10141c;
+  border: none;
+  font-family: Georgia, serif;
+  font-size: 11px;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.reveal-button:hover {
+  background: #f1d9ad;
+  transform: translateY(-3px);
+}
+
+.reveal {
+  display: none;
+  margin-top: 25px;
+  padding: 25px;
+  border-left: 2px solid #d8b879;
+  background: #202733;
+}
+
+.reveal.show {
+  display: block;
+}
+
+.reveal h3 {
+  color: #d8b879;
+  font-size: 20px;
+  font-weight: normal;
+  margin-bottom: 15px;
+}
+
+.reveal p {
+  color: #c2c7d0;
+  font-size: 13px;
+  line-height: 2;
+}
+
+.quote {
+  margin-top: 35px;
+  color: #e5d2ad;
+  font-style: italic;
+  font-size: 17px;
+  line-height: 1.8;
+}
+
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  margin-top: 45px;
+}
+
+.button {
+  display: inline-block;
+  padding: 15px 22px;
+  text-decoration: none;
+  font-size: 10px;
+  letter-spacing: 1px;
+  transition: 0.3s;
+}
+
+.back {
+  color: #d8b879;
+  border: 1px solid #d8b879;
+}
+
+.next {
+  background: #d8b879;
+  color: #10141c;
+}
+
+.button:hover {
+  transform: translateY(-3px);
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  color: #747d8b;
+  font-size: 10px;
+  letter-spacing: 2px;
+}
+
+@media (max-width: 600px) {
+
+  header {
+    padding: 22px 6%;
+  }
+
+  main {
+    padding: 45px 6%;
+  }
+
+  .discovery {
+    padding: 25px;
+  }
+
+  .experiment {
+    padding: 20px;
+  }
+
+  .navigation {
+    flex-direction: column;
+  }
+
+  .button {
+    text-align: center;
+  }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+  <div class="logo">
+    AI MUSEUM
+  </div>
+
+  <a href="index.html">
+    THE ENTRANCE
+  </a>
+
+</header>
+
+<main>
+
+  <section class="intro">
+
+    <div class="label">
+      ROOM 03 · THE UNEXPECTED
+    </div>
+
+    <h1>
+      Beyond<br>
+      <span>What We See</span>
+    </h1>
+
+    <p>
+      Some discoveries change the way we think.
+      This is the discovery that made me see
+      artificial intelligence differently.
+    </p>
+
+  </section>
+
+  <section class="discovery">
+
+    <div class="discovery-number">
+      EXHIBIT 003 · A SURPRISING DISCOVERY
+    </div>
+
+    <h2>
+      AI Can Learn Patterns
+    </h2>
+
+    <p>
+      Before exploring AI, I thought computers
+      could only follow instructions written
+      by humans.
+
+      What surprised me is that some AI systems
+      can learn patterns from examples
+      and use those patterns to make predictions
+      or generate new content.
+    </p>
+
+    <div class="experiment">
+
+      <h3>
+        A Tiny Experiment
+      </h3>
+
+      <div class="example">
+
+        <strong>EXAMPLE 01</strong><br>
+
+        A picture of a cat is labeled
+        "cat".
+
+      </div>
+
+      <div class="example">
+
+        <strong>EXAMPLE 02</strong><br>
+
+        Another picture of a cat is also
+        labeled "cat".
+
+      </div>
+
+      <div class="example">
+
+        <strong>EXAMPLE 03</strong><br>
+
+        A new picture appears.
+
+        Can a trained AI model recognize
+        that it may also be a cat?
+
+      </div>
+
+      <button
+        class="reveal-button"
+        onclick="revealDiscovery()"
+        id="revealButton">
+
+        REVEAL THE DISCOVERY →
+
+      </button>
+
+      <div class="reveal" id="reveal">
+
+        <h3>
+          The Unexpected Part
+        </h3>
+
+        <p>
+          A trained AI model may recognize
+          a new cat image because it learned
+          patterns from its training examples.
+
+          It does not need to memorize
+          every single cat picture.
+
+          However, its prediction can still
+          be wrong, especially when the new
+          image is very different from
+          the examples it learned from.
+        </p>
+
+      </div>
+
+    </div>
+
+    <div class="quote">
+
+      "AI can learn from examples,
+      but learning patterns is not
+      the same as understanding
+      the world like a human."
+
+    </div>
+
+  </section>
+
+  <div class="navigation">
+
+    <a href="room2.html" class="button back">
+      ← PREVIOUS ROOM
+    </a>
+
+    <a href="room4.html" class="button next">
+      NEXT ROOM →
+    </a>
+
+  </div>
+
+</main>
+
+<footer>
+
+  AI THROUGH MY EYES · ROOM 03
+
+</footer>
+
+<script>
+
+function revealDiscovery() {
+
+  const reveal = document.getElementById("reveal");
+
+  const button = document.getElementById("revealButton");
+
+  reveal.classList.toggle("show");
+
+  if (reveal.classList.contains("show")) {
+
+    button.textContent = "HIDE DISCOVERY −";
+
+  } else {
+
+    button.textContent = "REVEAL THE DISCOVERY →";
+
+  }
+
+}
+
+</script>
+
+</body>
+</html>
