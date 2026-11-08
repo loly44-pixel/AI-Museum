@@ -1,0 +1,562 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Room 04 | My Creative Studio</title>
+
+<style>
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #10141c;
+  color: #f5f0e6;
+  font-family: Georgia, serif;
+  min-height: 100vh;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 8%;
+  border-bottom: 1px solid #303540;
+}
+
+.logo {
+  color: #d8b879;
+  font-size: 13px;
+  letter-spacing: 4px;
+}
+
+header a {
+  color: #b8bdc8;
+  text-decoration: none;
+  font-size: 11px;
+  letter-spacing: 2px;
+}
+
+main {
+  min-height: 85vh;
+  padding: 65px 8%;
+  background:
+    radial-gradient(ellipse at top, #293747, #10141c 75%);
+}
+
+.intro {
+  text-align: center;
+  max-width: 750px;
+  margin: 0 auto 50px;
+}
+
+.label {
+  color: #d8b879;
+  font-size: 11px;
+  letter-spacing: 5px;
+  margin-bottom: 25px;
+}
+
+h1 {
+  font-size: clamp(45px, 8vw, 80px);
+  font-weight: normal;
+  line-height: 1.1;
+}
+
+h1 span {
+  color: #d8b879;
+  font-style: italic;
+}
+
+.intro p {
+  color: #aeb5c1;
+  font-size: 14px;
+  line-height: 2;
+  margin-top: 25px;
+}
+
+.studio {
+  max-width: 850px;
+  margin: auto;
+}
+
+.studio-card {
+  border: 1px solid #424958;
+  background: #171d27;
+  padding: 35px;
+  margin-bottom: 20px;
+}
+
+.card-label {
+  color: #d8b879;
+  font-size: 10px;
+  letter-spacing: 3px;
+  margin-bottom: 20px;
+}
+
+h2 {
+  font-size: 27px;
+  font-weight: normal;
+  margin-bottom: 20px;
+}
+
+.studio-card p {
+  color: #b8bdc8;
+  font-size: 14px;
+  line-height: 2;
+}
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  margin-top: 25px;
+}
+
+.step {
+  padding: 20px;
+  background: #10141c;
+  border: 1px solid #343b48;
+}
+
+.step-number {
+  color: #d8b879;
+  font-size: 11px;
+  letter-spacing: 2px;
+}
+
+.step h3 {
+  font-size: 18px;
+  font-weight: normal;
+  margin-top: 15px;
+}
+
+.step p {
+  font-size: 12px;
+  margin-top: 12px;
+  line-height: 1.8;
+}
+
+.reveal-button {
+  margin-top: 25px;
+  padding: 14px 22px;
+  background: #d8b879;
+  color: #10141c;
+  border: none;
+  font-family: Georgia, serif;
+  font-size: 11px;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.reveal-button:hover {
+  background: #f1d9ad;
+  transform: translateY(-3px);
+}
+
+.reveal {
+  display: none;
+  margin-top: 25px;
+  padding: 25px;
+  border-left: 2px solid #d8b879;
+  background: #202733;
+}
+
+.reveal.show {
+  display: block;
+}
+
+.reveal h3 {
+  color: #d8b879;
+  font-size: 20px;
+  font-weight: normal;
+  margin-bottom: 15px;
+}
+
+.reveal p {
+  color: #c2c7d0;
+  font-size: 13px;
+  line-height: 2;
+}
+
+.sources a {
+  display: block;
+  color: #d8b879;
+  text-decoration: none;
+  font-size: 13px;
+  margin-top: 15px;
+}
+
+.sources a:hover {
+  color: #fff0cf;
+}
+
+.quote {
+  text-align: center;
+  margin: 50px auto;
+  max-width: 650px;
+  color: #e5d2ad;
+  font-size: 19px;
+  font-style: italic;
+  line-height: 1.8;
+}
+
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  margin-top: 45px;
+}
+
+.button {
+  display: inline-block;
+  padding: 15px 22px;
+  text-decoration: none;
+  font-size: 10px;
+  letter-spacing: 1px;
+  transition: 0.3s;
+}
+
+.back {
+  color: #d8b879;
+  border: 1px solid #d8b879;
+}
+
+.next {
+  background: #d8b879;
+  color: #10141c;
+}
+
+.button:hover {
+  transform: translateY(-3px);
+}
+
+footer {
+  text-align: center;
+  padding: 25px;
+  color: #747d8b;
+  font-size: 10px;
+  letter-spacing: 2px;
+}
+
+@media (max-width: 700px) {
+
+  header {
+    padding: 22px 6%;
+  }
+
+  main {
+    padding: 45px 6%;
+  }
+
+  .studio-card {
+    padding: 25px;
+  }
+
+  .steps {
+    grid-template-columns: 1fr;
+  }
+
+  .navigation {
+    flex-direction: column;
+  }
+
+  .button {
+    text-align: center;
+  }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+  <div class="logo">
+    AI MUSEUM
+  </div>
+
+  <a href="index.html">
+    THE ENTRANCE
+  </a>
+
+</header>
+
+<main>
+
+  <section class="intro">
+
+    <div class="label">
+      ROOM 04 · MY CREATIVE STUDIO
+    </div>
+
+    <h1>
+      Behind<br>
+      <span>My Creation</span>
+    </h1>
+
+    <p>
+      Every creative project begins with an idea.
+
+      Discover how I used artificial intelligence
+      as a creative tool while building
+      my own digital museum.
+    </p>
+
+  </section>
+
+  <section class="studio">
+
+    <!-- AI CONTRIBUTION -->
+
+    <div class="studio-card">
+
+      <div class="card-label">
+        EXHIBIT 004 · MY CREATIVE PROCESS
+      </div>
+
+      <h2>
+        How AI Helped Me
+      </h2>
+
+      <p>
+        I used ChatGPT as a creative assistant
+        to brainstorm ideas, organize information,
+        and help develop the HTML and CSS
+        for my digital museum.
+
+        It helped me turn my concept into
+        an interactive website with separate
+        exhibition rooms.
+      </p>
+
+      <button
+        class="reveal-button"
+        onclick="toggleReveal('process', this)">
+
+        EXPLORE MY PROCESS +
+
+      </button>
+
+      <div class="reveal" id="process">
+
+        <h3>
+          From Idea to Museum
+        </h3>
+
+        <p>
+
+          First, I chose the idea of creating
+          a digital museum about artificial intelligence.
+
+          Then, I organized the experience into
+          four exhibition rooms.
+
+          I used AI to help develop the website structure
+          and interactive features.
+
+          Finally, I reviewed the content and
+          customized the design to create
+          my own digital experience.
+
+        </p>
+
+      </div>
+
+    </div>
+
+    <!-- MY ROLE -->
+
+    <div class="studio-card">
+
+      <div class="card-label">
+        MY ROLE · HUMAN CREATIVITY
+      </div>
+
+      <h2>
+        My Ideas. My Decisions.
+      </h2>
+
+      <p>
+        AI supported my creative process,
+        but I made the decisions that shaped
+        my project.
+
+        I selected the museum concept,
+        organized the rooms, chose the visual style,
+        and decided how visitors would explore
+        the experience.
+      </p>
+
+      <div class="steps">
+
+        <div class="step">
+
+          <div class="step-number">
+            01
+          </div>
+
+          <h3>
+            Imagine
+          </h3>
+
+          <p>
+            I chose a digital museum
+            as my creative concept.
+          </p>
+
+        </div>
+
+        <div class="step">
+
+          <div class="step-number">
+            02
+          </div>
+
+          <h3>
+            Create
+          </h3>
+
+          <p>
+            I developed the rooms
+            and interactive experience
+            with AI assistance.
+          </p>
+
+        </div>
+
+        <div class="step">
+
+          <div class="step-number">
+            03
+          </div>
+
+          <h3>
+            Customize
+          </h3>
+
+          <p>
+            I selected the content,
+            visual style, and navigation
+            of my museum.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- SOURCES -->
+
+    <div class="studio-card sources">
+
+      <div class="card-label">
+        REFERENCES · FURTHER EXPLORATION
+      </div>
+
+      <h2>
+        Explore the Sources
+      </h2>
+
+      <p>
+        These resources helped me explore
+        artificial intelligence, machine learning,
+        and its applications.
+      </p>
+
+      <a href="https://www.ibm.com/think/topics/artificial-intelligence"
+         target="_blank"
+         rel="noopener noreferrer">
+
+        ↗ IBM — What Is Artificial Intelligence?
+
+      </a>
+
+      <a href="https://www.ibm.com/think/topics/machine-learning"
+         target="_blank"
+         rel="noopener noreferrer">
+
+        ↗ IBM — What Is Machine Learning?
+
+      </a>
+
+      <a href="https://www.unesco.org/en/artificial-intelligence"
+         target="_blank"
+         rel="noopener noreferrer">
+
+        ↗ UNESCO — Artificial Intelligence
+
+      </a>
+
+    </div>
+
+  </section>
+
+  <div class="quote">
+
+    "Technology can help us create.
+    Imagination gives our creations meaning."
+
+  </div>
+
+  <div class="navigation">
+
+    <a href="room3.html" class="button back">
+      ← PREVIOUS ROOM
+    </a>
+
+    <a href="index.html" class="button next">
+      RETURN TO THE MUSEUM →
+    </a>
+
+  </div>
+
+</main>
+
+<footer>
+
+  AI THROUGH MY EYES · ROOM 04
+
+  <br><br>
+
+  THANK YOU FOR EXPLORING MY MUSEUM
+
+</footer>
+
+<script>
+
+function toggleReveal(id, button) {
+
+  const content = document.getElementById(id);
+
+  content.classList.toggle("show");
+
+  if (content.classList.contains("show")) {
+
+    button.textContent = "CLOSE −";
+
+  } else {
+
+    button.textContent = "EXPLORE MY PROCESS +";
+
+  }
+
+}
+
+</script>
+
+</body>
+
+</html>
