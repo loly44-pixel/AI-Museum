@@ -4,7 +4,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Room 02 | AI in Real Life</title>
+
+<title>Room 02 | AI Around Us</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 
@@ -26,6 +27,7 @@ header {
   padding: 25px 8%;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   border-bottom: 1px solid #ffffff12;
 }
 
@@ -42,24 +44,24 @@ header {
 }
 
 main {
-  max-width: 1050px;
+  max-width: 1100px;
   margin: auto;
   padding: 65px 25px;
 }
 
 .label {
   color: #d7b779;
-  font-size: 11px;
+  font-size: 10px;
   letter-spacing: 4px;
   margin-bottom: 18px;
 }
 
 h1 {
   font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(48px, 8vw, 80px);
+  font-size: clamp(48px, 8vw, 82px);
   font-weight: 400;
   line-height: 1;
-  margin-bottom: 25px;
+  margin-bottom: 22px;
 }
 
 h1 span {
@@ -68,13 +70,13 @@ h1 span {
 }
 
 .intro {
-  max-width: 570px;
+  max-width: 550px;
   color: #a7a9ad;
   font-size: 14px;
   line-height: 1.9;
 }
 
-.cards {
+.gallery {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 18px;
@@ -83,40 +85,51 @@ h1 span {
 
 .card {
   background: linear-gradient(145deg, #171c24, #0d1118);
-  border: 1px solid #ffffff15;
-  padding: 30px 25px;
-  transition: 0.3s;
+  border: 1px solid #ffffff13;
+  padding: 28px;
+  min-height: 310px;
+  transition: 0.35s;
+  position: relative;
 }
 
 .card:hover {
-  border-color: #d7b77965;
+  border-color: #d7b77975;
   transform: translateY(-5px);
 }
 
-.icon {
-  font-size: 35px;
-  margin-bottom: 25px;
+.number {
+  color: #d7b779;
+  font-size: 11px;
+  letter-spacing: 2px;
+}
+
+.symbol {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 45px;
+  color: #d7b779;
+  margin: 25px 0 15px;
+  opacity: 0.9;
 }
 
 .card h2 {
   font-family: 'Cormorant Garamond', serif;
   font-size: 29px;
   font-weight: 400;
-  margin-bottom: 15px;
+  margin-bottom: 12px;
 }
 
 .card p {
-  color: #a7a9ad;
-  font-size: 13px;
-  line-height: 1.9;
+  color: #9fa2a8;
+  font-size: 12px;
+  line-height: 1.8;
 }
 
-.card button {
+button {
   margin-top: 25px;
-  padding: 12px 18px;
-  border: 1px solid #d7b77970;
   background: transparent;
+  border: 1px solid #d7b77965;
   color: #d7b779;
+  padding: 12px 16px;
   font-family: inherit;
   font-size: 11px;
   letter-spacing: 1px;
@@ -124,56 +137,61 @@ h1 span {
   transition: 0.3s;
 }
 
-.card button:hover {
+button:hover {
   background: #d7b779;
   color: #090d13;
 }
 
-.info {
+.details {
   display: none;
   margin-top: 20px;
   padding-top: 18px;
-  border-top: 1px solid #ffffff15;
-  color: #d0c6b2;
+  border-top: 1px solid #ffffff18;
+  color: #c0c2c6;
   font-size: 12px;
-  line-height: 1.8;
-}
-
-.info.show {
-  display: block;
-}
-
-.reflection {
-  margin-top: 65px;
-  padding: 40px;
-  border: 1px solid #d7b77935;
-  text-align: center;
-}
-
-.reflection h2 {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 35px;
-  font-weight: 400;
-  margin-bottom: 15px;
-}
-
-.reflection p {
-  color: #a7a9ad;
-  font-size: 13px;
   line-height: 1.9;
+}
+
+.details.show {
+  display: block;
+  animation: appear 0.4s ease;
+}
+
+.details strong {
+  color: #d7b779;
+  font-weight: 400;
+}
+
+.note {
+  margin-top: 50px;
+  padding: 25px;
+  border-left: 1px solid #d7b779;
+  background: #ffffff05;
+}
+
+.note p {
+  color: #a7a9ad;
+  font-size: 12px;
+  line-height: 1.9;
+}
+
+.note strong {
+  color: #d7b779;
+  font-weight: 400;
 }
 
 .bottom {
   display: flex;
   justify-content: space-between;
-  margin-top: 70px;
+  align-items: center;
+  margin-top: 65px;
   padding-top: 25px;
   border-top: 1px solid #ffffff15;
 }
 
 .nav-link {
-  text-decoration: none;
   color: #d7b779;
+  text-decoration: none;
   font-size: 12px;
   letter-spacing: 1px;
 }
@@ -182,21 +200,33 @@ h1 span {
   color: #777c84;
 }
 
-@media (max-width: 750px) {
-  .cards {
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 800px) {
+  .gallery {
     grid-template-columns: 1fr;
   }
 
-  header {
-    padding: 20px;
+  .card {
+    min-height: auto;
   }
 
   main {
     padding: 45px 20px;
   }
 
-  .reflection {
-    padding: 30px 20px;
+  header {
+    padding: 20px;
   }
 }
 </style>
@@ -211,105 +241,121 @@ h1 span {
 
 <main>
 
-  <div class="label">BEYOND THE SCREEN</div>
+  <div class="label">THE REAL WORLD GALLERY</div>
 
-  <h1>AI in <span>Real Life.</span></h1>
+  <h1>AI Around <span>Us.</span></h1>
 
   <p class="intro">
-    Artificial intelligence is not just something we see in movies.
-    It is already part of our everyday lives.
-    Explore three ways AI helps us in the real world.
+    Artificial intelligence is not only something we see in science fiction.
+    It already helps people in different fields.
+    Explore these three examples to discover how.
   </p>
 
-  <section class="cards">
+  <section class="gallery">
 
-    <div class="card">
+    <article class="card">
 
-      <div class="icon">🩺</div>
+      <div class="number">EXHIBIT 01</div>
+
+      <div class="symbol">01</div>
 
       <h2>Healthcare</h2>
 
       <p>
-        AI helps doctors analyze medical images,
-        detect possible diseases, and support
-        medical decision-making.
+        AI can help doctors examine medical images
+        and find patterns that may be difficult to notice.
       </p>
 
-      <button onclick="toggleInfo('health')">
-        DISCOVER MORE +
+      <button onclick="toggleDetails('health', this)">
+        EXPLORE EXHIBIT +
       </button>
 
-      <div class="info" id="health">
-        AI can help identify patterns in X-rays
-        and medical scans. Doctors still review
-        the results and make the final decisions.
+      <div class="details" id="health">
+        <strong>How AI helps</strong><br>
+        AI systems can analyze medical images, such as
+        X-rays, and highlight areas that may need
+        a closer examination by a healthcare professional.
+        <br><br>
+        <strong>Why it matters</strong><br>
+        It can support doctors in making informed decisions.
+        AI does not replace the doctor's judgment.
       </div>
 
-    </div>
+    </article>
 
-    <div class="card">
+    <article class="card">
 
-      <div class="icon">🚗</div>
+      <div class="number">EXHIBIT 02</div>
 
-      <h2>Transportation</h2>
-
-      <p>
-        AI helps navigation apps predict traffic,
-        suggest faster routes, and support
-        the development of self-driving cars.
-      </p>
-
-      <button onclick="toggleInfo('transport')">
-        DISCOVER MORE +
-      </button>
-
-      <div class="info" id="transport">
-        AI systems can analyze traffic conditions
-        and road information to help people
-        make better travel decisions.
-      </div>
-
-    </div>
-
-    <div class="card">
-
-      <div class="icon">🎓</div>
+      <div class="symbol">02</div>
 
       <h2>Education</h2>
 
       <p>
-        AI can personalize learning,
-        explain difficult concepts,
-        and help students practice new skills.
+        AI can help students learn by explaining
+        difficult topics and adapting practice activities.
       </p>
 
-      <button onclick="toggleInfo('education')">
-        DISCOVER MORE +
+      <button onclick="toggleDetails('education', this)">
+        EXPLORE EXHIBIT +
       </button>
 
-      <div class="info" id="education">
-        AI learning tools can adapt explanations
-        and practice activities to a student's
-        needs, while teachers guide the learning.
+      <div class="details" id="education">
+        <strong>How AI helps</strong><br>
+        AI learning tools can provide explanations,
+        examples, and practice questions based
+        on a student's needs.
+        <br><br>
+        <strong>Why it matters</strong><br>
+        Students can use it to review lessons,
+        understand mistakes, and practice at their own pace.
       </div>
 
-    </div>
+    </article>
+
+    <article class="card">
+
+      <div class="number">EXHIBIT 03</div>
+
+      <div class="symbol">03</div>
+
+      <h2>Navigation</h2>
+
+      <p>
+        AI helps navigation systems understand
+        traffic patterns and suggest better routes.
+      </p>
+
+      <button onclick="toggleDetails('navigation', this)">
+        EXPLORE EXHIBIT +
+      </button>
+
+      <div class="details" id="navigation">
+        <strong>How AI helps</strong><br>
+        Navigation systems can use traffic information
+        and patterns to estimate travel times
+        and suggest alternative routes.
+        <br><br>
+        <strong>Why it matters</strong><br>
+        It helps people plan journeys and may
+        reduce time spent in traffic.
+      </div>
+
+    </article>
 
   </section>
 
-  <section class="reflection">
+  <section class="note">
 
-    <div class="label">THINK ABOUT IT</div>
-
-    <h2>AI is already around us.</h2>
+    <div class="label">WHAT I DISCOVERED</div>
 
     <p>
-      From the moment we wake up to the moment
-      we go to sleep, artificial intelligence
-      can quietly support our daily activities.
-      <br><br>
-      The question is not whether AI will affect
-      our lives, but how we choose to use it.
+      <strong>AI is already part of everyday life.</strong>
+      From helping doctors examine images to supporting
+      students and improving navigation, AI can assist
+      people in different ways.
+      The important part is understanding how to use it
+      responsibly and checking its results.
     </p>
 
   </section>
@@ -329,11 +375,19 @@ h1 span {
 </main>
 
 <script>
-function toggleInfo(id) {
+function toggleDetails(id, button) {
 
-  const info = document.getElementById(id);
+  const details = document.getElementById(id);
 
-  info.classList.toggle("show");
+  const isOpen = details.classList.contains("show");
+
+  details.classList.toggle("show");
+
+  if (isOpen) {
+    button.textContent = "EXPLORE EXHIBIT +";
+  } else {
+    button.textContent = "CLOSE EXHIBIT −";
+  }
 
 }
 </script>
