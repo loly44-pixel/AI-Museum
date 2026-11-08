@@ -1,0 +1,273 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Room 01 | The AI Mirror</title>
+
+<style>
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #10141c;
+  color: #f5f0e6;
+  font-family: Georgia, serif;
+  min-height: 100vh;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 8%;
+  border-bottom: 1px solid #303540;
+}
+
+.logo {
+  color: #d8b879;
+  font-size: 13px;
+  letter-spacing: 4px;
+}
+
+header a {
+  color: #b8bdc8;
+  text-decoration: none;
+  font-size: 11px;
+  letter-spacing: 2px;
+}
+
+main {
+  min-height: 85vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px 20px;
+  background:
+    radial-gradient(
+      ellipse at center,
+      #293747,
+      #10141c 75%
+    );
+}
+
+.container {
+  max-width: 800px;
+  width: 100%;
+  text-align: center;
+}
+
+.label {
+  color: #d8b879;
+  font-size: 11px;
+  letter-spacing: 5px;
+  margin-bottom: 25px;
+}
+
+h1 {
+  font-size: clamp(45px, 8vw, 75px);
+  font-weight: normal;
+  line-height: 1.1;
+}
+
+h1 span {
+  color: #d8b879;
+  font-style: italic;
+}
+
+.intro {
+  color: #aeb5c1;
+  max-width: 600px;
+  margin: 25px auto 40px;
+  font-size: 14px;
+  line-height: 2;
+}
+
+.exhibit {
+  border: 1px solid #424958;
+  background: rgba(20, 26, 36, 0.8);
+  padding: 35px;
+  text-align: left;
+}
+
+.exhibit-label {
+  color: #d8b879;
+  font-size: 10px;
+  letter-spacing: 3px;
+  margin-bottom: 20px;
+}
+
+.exhibit h2 {
+  font-size: 27px;
+  font-weight: normal;
+  margin-bottom: 20px;
+}
+
+.exhibit p {
+  color: #b8bdc8;
+  font-size: 14px;
+  line-height: 2;
+}
+
+.quote {
+  margin-top: 25px;
+  padding-left: 20px;
+  border-left: 2px solid #d8b879;
+  color: #e5d2ad;
+  font-style: italic;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  margin-top: 35px;
+}
+
+.button {
+  display: inline-block;
+  padding: 15px 22px;
+  text-decoration: none;
+  font-size: 10px;
+  letter-spacing: 1px;
+  transition: 0.3s;
+}
+
+.back {
+  color: #d8b879;
+  border: 1px solid #d8b879;
+}
+
+.next {
+  background: #d8b879;
+  color: #10141c;
+}
+
+.button:hover {
+  transform: translateY(-3px);
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  color: #747d8b;
+  font-size: 10px;
+  letter-spacing: 2px;
+}
+
+@media (max-width: 500px) {
+
+  header {
+    padding: 22px 6%;
+  }
+
+  .exhibit {
+    padding: 25px;
+  }
+
+  .navigation {
+    flex-direction: column;
+  }
+
+  .button {
+    text-align: center;
+  }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+  <div class="logo">
+    AI MUSEUM
+  </div>
+
+  <a href="index.html">
+    THE ENTRANCE
+  </a>
+
+</header>
+
+<main>
+
+  <div class="container">
+
+    <div class="label">
+      ROOM 01 · THE AI MIRROR
+    </div>
+
+    <h1>
+      What is<br>
+      <span>AI?</span>
+    </h1>
+
+    <p class="intro">
+      Before exploring the world of artificial intelligence,
+      let's discover what it means to me.
+    </p>
+
+    <div class="exhibit">
+
+      <div class="exhibit-label">
+        EXHIBIT 001 · MY UNDERSTANDING
+      </div>
+
+      <h2>AI in My Words</h2>
+
+      <p>
+        To me, artificial intelligence is a technology
+        that helps computers learn from information,
+        recognize patterns, and perform tasks
+        that usually need human thinking.
+
+        It can help us solve problems,
+        understand information, and make
+        everyday activities easier.
+      </p>
+
+      <div class="quote">
+        AI is not just about technology.
+        It is about discovering new ways
+        to think, learn, and create.
+      </div>
+
+    </div>
+
+    <div class="navigation">
+
+      <a href="index.html" class="button back">
+        ← BACK TO ENTRANCE
+      </a>
+
+      <a href="room2.html" class="button next">
+        NEXT ROOM →
+      </a>
+
+    </div>
+
+  </div>
+
+</main>
+
+<footer>
+
+  AI THROUGH MY EYES · ROOM 01
+
+</footer>
+
+</body>
+</html>
