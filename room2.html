@@ -4,8 +4,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Room 02 | AI in Real Life</title>
 
-<title>Room 02 | AI Around Us</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
 * {
@@ -15,205 +16,187 @@
 }
 
 body {
-  background: #10141c;
-  color: #f5f0e6;
-  font-family: Georgia, serif;
+  background: #090d13;
+  color: #f2eee5;
+  font-family: 'DM Sans', sans-serif;
   min-height: 100vh;
 }
 
 header {
+  padding: 25px 8%;
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  padding: 25px 8%;
-  border-bottom: 1px solid #303540;
+  border-bottom: 1px solid #ffffff12;
 }
 
 .logo {
-  color: #d8b879;
-  font-size: 13px;
-  letter-spacing: 4px;
+  color: #d7b779;
+  font-size: 12px;
+  letter-spacing: 3px;
 }
 
-header a {
-  color: #b8bdc8;
-  text-decoration: none;
+.room-number {
+  color: #777c84;
   font-size: 11px;
   letter-spacing: 2px;
 }
 
 main {
-  padding: 70px 8%;
-  min-height: 85vh;
-  background:
-    radial-gradient(ellipse at top, #293747, #10141c 70%);
-}
-
-.intro {
-  text-align: center;
-  max-width: 700px;
-  margin: 0 auto 55px;
+  max-width: 1050px;
+  margin: auto;
+  padding: 65px 25px;
 }
 
 .label {
-  color: #d8b879;
+  color: #d7b779;
   font-size: 11px;
-  letter-spacing: 5px;
-  margin-bottom: 25px;
+  letter-spacing: 4px;
+  margin-bottom: 18px;
 }
 
 h1 {
-  font-size: clamp(42px, 7vw, 75px);
-  font-weight: normal;
-  line-height: 1.1;
-}
-
-h1 span {
-  color: #d8b879;
-  font-style: italic;
-}
-
-.intro p {
-  color: #aeb5c1;
-  font-size: 14px;
-  line-height: 2;
-  margin-top: 25px;
-}
-
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-}
-
-.artwork {
-  border: 1px solid #3a4250;
-  background: #171d27;
-  padding: 30px;
-  transition: 0.3s;
-}
-
-.artwork:hover {
-  transform: translateY(-6px);
-  border-color: #d8b879;
-}
-
-.art-icon {
-  font-size: 42px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(48px, 8vw, 80px);
+  font-weight: 400;
+  line-height: 1;
   margin-bottom: 25px;
 }
 
-.art-number {
-  color: #d8b879;
-  font-size: 10px;
-  letter-spacing: 3px;
+h1 span {
+  color: #d7b779;
+  font-style: italic;
 }
 
-h2 {
-  font-size: 25px;
-  font-weight: normal;
-  margin-top: 18px;
-}
-
-.artwork p {
-  color: #aeb5c1;
-  font-size: 13px;
-  line-height: 1.9;
-  margin-top: 15px;
-}
-
-.artwork button {
-  background: transparent;
-  border: none;
-  color: #d8b879;
-  font-family: Georgia, serif;
-  font-size: 11px;
-  letter-spacing: 2px;
-  margin-top: 25px;
-  cursor: pointer;
-}
-
-.artwork button:hover {
-  color: #fff0cf;
-}
-
-.details {
-  display: none;
-  margin-top: 20px;
-  padding-top: 20px;
-  border-top: 1px solid #424958;
-  color: #d4d7df;
-  font-size: 13px;
+.intro {
+  max-width: 570px;
+  color: #a7a9ad;
+  font-size: 14px;
   line-height: 1.9;
 }
 
-.details.show {
-  display: block;
-}
-
-.navigation {
-  display: flex;
-  justify-content: space-between;
-  gap: 15px;
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
   margin-top: 55px;
 }
 
-.button {
-  display: inline-block;
-  padding: 15px 22px;
-  text-decoration: none;
-  font-size: 10px;
-  letter-spacing: 1px;
+.card {
+  background: linear-gradient(145deg, #171c24, #0d1118);
+  border: 1px solid #ffffff15;
+  padding: 30px 25px;
   transition: 0.3s;
 }
 
-.back {
-  color: #d8b879;
-  border: 1px solid #d8b879;
+.card:hover {
+  border-color: #d7b77965;
+  transform: translateY(-5px);
 }
 
-.next {
-  background: #d8b879;
-  color: #10141c;
+.icon {
+  font-size: 35px;
+  margin-bottom: 25px;
 }
 
-.button:hover {
-  transform: translateY(-3px);
+.card h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 29px;
+  font-weight: 400;
+  margin-bottom: 15px;
 }
 
-footer {
+.card p {
+  color: #a7a9ad;
+  font-size: 13px;
+  line-height: 1.9;
+}
+
+.card button {
+  margin-top: 25px;
+  padding: 12px 18px;
+  border: 1px solid #d7b77970;
+  background: transparent;
+  color: #d7b779;
+  font-family: inherit;
+  font-size: 11px;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.card button:hover {
+  background: #d7b779;
+  color: #090d13;
+}
+
+.info {
+  display: none;
+  margin-top: 20px;
+  padding-top: 18px;
+  border-top: 1px solid #ffffff15;
+  color: #d0c6b2;
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+.info.show {
+  display: block;
+}
+
+.reflection {
+  margin-top: 65px;
+  padding: 40px;
+  border: 1px solid #d7b77935;
   text-align: center;
-  padding: 20px;
-  color: #747d8b;
-  font-size: 10px;
-  letter-spacing: 2px;
 }
 
-@media (max-width: 800px) {
-  .gallery {
+.reflection h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 35px;
+  font-weight: 400;
+  margin-bottom: 15px;
+}
+
+.reflection p {
+  color: #a7a9ad;
+  font-size: 13px;
+  line-height: 1.9;
+}
+
+.bottom {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 70px;
+  padding-top: 25px;
+  border-top: 1px solid #ffffff15;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #d7b779;
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+
+.back {
+  color: #777c84;
+}
+
+@media (max-width: 750px) {
+  .cards {
     grid-template-columns: 1fr;
   }
 
-  main {
-    padding: 50px 6%;
-  }
-
-  .artwork {
-    padding: 30px;
-  }
-}
-
-@media (max-width: 500px) {
   header {
-    padding: 22px 6%;
+    padding: 20px;
   }
 
-  .navigation {
-    flex-direction: column;
+  main {
+    padding: 45px 20px;
   }
 
-  .button {
-    text-align: center;
+  .reflection {
+    padding: 30px 20px;
   }
 }
 </style>
@@ -222,149 +205,122 @@ footer {
 <body>
 
 <header>
-  <div class="logo">AI MUSEUM</div>
-
-  <a href="index.html">THE ENTRANCE</a>
+  <div class="logo">AI THROUGH MY EYES</div>
+  <div class="room-number">ROOM 02 / 04</div>
 </header>
 
 <main>
 
-  <section class="intro">
+  <div class="label">BEYOND THE SCREEN</div>
 
-    <div class="label">
-      ROOM 02 · AI IN OUR WORLD
-    </div>
+  <h1>AI in <span>Real Life.</span></h1>
 
-    <h1>
-      AI <span>Around</span><br>
-      Us
-    </h1>
+  <p class="intro">
+    Artificial intelligence is not just something we see in movies.
+    It is already part of our everyday lives.
+    Explore three ways AI helps us in the real world.
+  </p>
 
-    <p>
-      Artificial intelligence is not just a futuristic idea.
-      It is already part of our everyday lives.
-      Explore three ways AI helps people around the world.
-    </p>
+  <section class="cards">
 
-  </section>
+    <div class="card">
 
-  <section class="gallery">
-
-    <!-- EXHIBIT 1 -->
-
-    <div class="artwork">
-
-      <div class="art-icon">✧</div>
-
-      <div class="art-number">
-        EXHIBIT 001
-      </div>
+      <div class="icon">🩺</div>
 
       <h2>Healthcare</h2>
 
       <p>
-        AI can help doctors analyze medical images
-        and identify patterns that may be difficult
-        to notice.
+        AI helps doctors analyze medical images,
+        detect possible diseases, and support
+        medical decision-making.
       </p>
 
-      <button onclick="toggleDetails('health')">
+      <button onclick="toggleInfo('health')">
         DISCOVER MORE +
       </button>
 
-      <div class="details" id="health">
-
-        AI tools can support doctors when examining
-        X-rays and other medical images.
-
-        They can help identify areas that need
-        closer attention, but medical professionals
-        remain responsible for diagnosis and care.
-
+      <div class="info" id="health">
+        AI can help identify patterns in X-rays
+        and medical scans. Doctors still review
+        the results and make the final decisions.
       </div>
 
     </div>
 
-    <!-- EXHIBIT 2 -->
+    <div class="card">
 
-    <div class="artwork">
+      <div class="icon">🚗</div>
 
-      <div class="art-icon">✎</div>
+      <h2>Transportation</h2>
 
-      <div class="art-number">
-        EXHIBIT 002
+      <p>
+        AI helps navigation apps predict traffic,
+        suggest faster routes, and support
+        the development of self-driving cars.
+      </p>
+
+      <button onclick="toggleInfo('transport')">
+        DISCOVER MORE +
+      </button>
+
+      <div class="info" id="transport">
+        AI systems can analyze traffic conditions
+        and road information to help people
+        make better travel decisions.
       </div>
+
+    </div>
+
+    <div class="card">
+
+      <div class="icon">🎓</div>
 
       <h2>Education</h2>
 
       <p>
-        AI learning tools can explain difficult
-        topics and help students practice
-        at their own pace.
+        AI can personalize learning,
+        explain difficult concepts,
+        and help students practice new skills.
       </p>
 
-      <button onclick="toggleDetails('education')">
+      <button onclick="toggleInfo('education')">
         DISCOVER MORE +
       </button>
 
-      <div class="details" id="education">
-
-        AI can provide practice questions,
-        explain concepts in different ways,
-        and give feedback.
-
-        It can support learning, but students
-        still need to think critically
-        and check the information.
-
-      </div>
-
-    </div>
-
-    <!-- EXHIBIT 3 -->
-
-    <div class="artwork">
-
-      <div class="art-icon">⌖</div>
-
-      <div class="art-number">
-        EXHIBIT 003
-      </div>
-
-      <h2>Navigation</h2>
-
-      <p>
-        AI helps navigation applications
-        estimate traffic and suggest
-        alternative routes.
-      </p>
-
-      <button onclick="toggleDetails('navigation')">
-        DISCOVER MORE +
-      </button>
-
-      <div class="details" id="navigation">
-
-        Navigation systems can analyze traffic
-        patterns and road information
-        to estimate travel times.
-
-        This helps people make better
-        decisions about their journeys.
-
+      <div class="info" id="education">
+        AI learning tools can adapt explanations
+        and practice activities to a student's
+        needs, while teachers guide the learning.
       </div>
 
     </div>
 
   </section>
 
-  <div class="navigation">
+  <section class="reflection">
 
-    <a href="room1.html" class="button back">
+    <div class="label">THINK ABOUT IT</div>
+
+    <h2>AI is already around us.</h2>
+
+    <p>
+      From the moment we wake up to the moment
+      we go to sleep, artificial intelligence
+      can quietly support our daily activities.
+      <br><br>
+      The question is not whether AI will affect
+      our lives, but how we choose to use it.
+    </p>
+
+  </section>
+
+  <div class="bottom">
+
+    <a class="nav-link back" href="room1.html">
       ← PREVIOUS ROOM
     </a>
 
-    <a href="room3.html" class="button next">
+    <a class="nav-link" href="room3.html">
       NEXT ROOM →
     </a>
 
@@ -372,28 +328,14 @@ footer {
 
 </main>
 
-<footer>
-  AI THROUGH MY EYES · ROOM 02
-</footer>
-
 <script>
+function toggleInfo(id) {
 
-function toggleDetails(id) {
+  const info = document.getElementById(id);
 
-  const details = document.getElementById(id);
-
-  details.classList.toggle("show");
-
-  const button = details.previousElementSibling;
-
-  if (details.classList.contains("show")) {
-    button.textContent = "CLOSE −";
-  } else {
-    button.textContent = "DISCOVER MORE +";
-  }
+  info.classList.toggle("show");
 
 }
-
 </script>
 
 </body>
