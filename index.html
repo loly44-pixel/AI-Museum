@@ -1,302 +1,640 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>AI Museum | The Beginning</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#080810">
+<title>THE AI MUSEUM</title>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Space+Grotesk:wght@400;600;700&display=swap');
 
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@300;400&display=swap');
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+:root{
+  --bg:#080810;
+  --panel:#11111c;
+  --purple:#a78bfa;
+  --cyan:#67e8f9;
+  --text:#f7f5ff;
+  --muted:#aaa9bd;
+  --line:#29293b;
 }
-
-body {
-  background: #090d13;
-  color: #f1eee7;
-  font-family: 'DM Sans', sans-serif;
-  min-height: 100vh;
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--bg);color:var(--text);
+  font-family:'IBM Plex Sans Arabic',sans-serif;
+  line-height:1.9;
 }
-
-/* NAVIGATION */
-
-header {
-  height: 85px;
-  padding: 0 7%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 1px solid rgba(212, 181, 126, 0.15);
+button,a{font:inherit}
+button{cursor:pointer;color:inherit}
+a{color:var(--cyan);text-decoration:none}
+.top{
+  position:sticky;top:0;z-index:10;
+  display:flex;justify-content:space-between;align-items:center;
+  padding:12px 5%;background:#080810ed;
+  border-bottom:1px solid var(--line);
+  backdrop-filter:blur(15px);
 }
-
-.logo {
-  font-size: 12px;
-  letter-spacing: 4px;
-  color: #d5b47b;
+.logo{font:700 1rem 'Space Grotesk';letter-spacing:2px}
+.logo span{color:var(--purple)}
+.controls{display:flex;gap:8px}
+.control{
+  border:1px solid var(--line);background:var(--panel);
+  padding:7px 13px;border-radius:30px;
 }
-
-.nav-label {
-  font-size: 10px;
-  letter-spacing: 3px;
-  color: #8c929b;
+.control.active{border-color:var(--cyan);color:var(--cyan)}
+main{max-width:1100px;margin:auto;padding:0 20px}
+.hero{
+  min-height:85vh;display:grid;place-items:center;
+  text-align:center;position:relative;overflow:hidden;
 }
-
-/* MAIN EXPERIENCE */
-
-.hero {
-  min-height: calc(100vh - 85px);
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 70px 20px;
-  overflow: hidden;
-
-  background:
-    radial-gradient(
-      ellipse at 50% 55%,
-      rgba(91, 104, 119, 0.18),
-      transparent 48%
-    ),
-    linear-gradient(
-      180deg,
-      #111923 0%,
-      #090d13 100%
-    );
+.orb{
+  width:220px;height:220px;border-radius:50%;
+  margin:0 auto 25px;
+  background:radial-gradient(circle at 30% 25%,white,#c4a8ff 8%,#7552d6 30%,#201b48 65%,#080810 80%);
+  box-shadow:0 0 90px #9270ff35,inset -20px -20px 50px #050508;
+  animation:float 6s ease-in-out infinite;
 }
-
-/* LIGHT */
-
-.light {
-  position: absolute;
-  width: 420px;
-  height: 420px;
-  border-radius: 50%;
-  background: rgba(201, 166, 108, 0.06);
-  filter: blur(100px);
-  top: 20%;
-  left: 50%;
-  transform: translateX(-50%);
-  pointer-events: none;
+@keyframes float{50%{transform:translateY(-12px)}}
+.eyebrow{color:var(--cyan);font:600 .8rem 'Space Grotesk';letter-spacing:2px}
+h1{font:700 clamp(2.8rem,9vw,6rem)/1.1 'Space Grotesk';margin:10px 0}
+h1 span{color:var(--purple)}
+h2{font-size:clamp(1.7rem,5vw,3rem);margin:8px 0}
+h3{font-size:1.3rem;margin:8px 0}
+p{color:var(--muted)}
+.lead{max-width:700px;margin:15px auto 30px}
+.action{
+  display:inline-block;background:linear-gradient(110deg,var(--purple),var(--cyan));
+  color:#090910;font-weight:700;padding:12px 25px;border-radius:30px;
+  border:0;
 }
-
-/* CONTENT */
-
-.content {
-  position: relative;
-  z-index: 2;
-  max-width: 850px;
+.section{padding:75px 0;border-top:1px solid var(--line);scroll-margin-top:85px}
+.heading{margin-bottom:28px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.card{
+  background:linear-gradient(145deg,#171724,#0d0d15);
+  border:1px solid var(--line);border-radius:20px;
+  padding:23px;transition:.25s;
 }
-
-.eyebrow {
-  font-size: 10px;
-  letter-spacing: 6px;
-  color: #c9a96f;
-  margin-bottom: 35px;
+.card:hover{transform:translateY(-4px);border-color:#806bd0}
+.num{font:600 .75rem 'Space Grotesk';color:var(--purple)}
+.symbol{font-size:2.5rem;color:var(--cyan)}
+.detail{display:none;border-top:1px solid var(--line);margin-top:15px;padding-top:12px}
+.card.open .detail{display:block}
+.btn{
+  background:transparent;border:1px solid #62527f;
+  border-radius:25px;padding:7px 14px;color:var(--purple);
+  margin-top:10px;
 }
-
-h1 {
-  font-family: 'Cormorant Garamond', serif;
-  font-weight: 400;
-  font-size: clamp(65px, 10vw, 125px);
-  line-height: 0.92;
-  letter-spacing: -3px;
+.btn:hover{border-color:var(--cyan);color:var(--cyan)}
+.mirror{
+  border:1px solid #554478;border-radius:25px;padding:30px;
+  background:radial-gradient(ellipse at center,#251b40,#10101a);
 }
-
-h1 span {
-  display: block;
-  font-style: italic;
-  color: #d8bb8a;
-  margin-top: 12px;
+.question{
+  display:block;width:100%;text-align:right;
+  background:#11111b;border:1px solid var(--line);
+  padding:13px;border-radius:12px;margin:10px 0;
 }
-
-.description {
-  max-width: 430px;
-  margin: 35px auto 0;
-  font-size: 13px;
-  font-weight: 300;
-  line-height: 2.1;
-  color: #a4acb7;
+.answer{display:none;padding:0 15px;color:var(--cyan)}
+.question.active+.answer{display:block}
+.timeline{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.step{padding:15px;border-right:2px solid var(--purple);background:var(--panel);border-radius:10px}
+.challenge{
+  max-width:750px;margin:auto;padding:25px;
+  background:linear-gradient(145deg,#201632,#101019);
+  border:1px solid #554478;border-radius:25px;
 }
-
-/* BUTTON */
-
-.enter {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
-
-  margin-top: 45px;
-  padding: 17px 30px;
-
-  background: #d3b17b;
-  color: #10141a;
-
-  text-decoration: none;
-  font-size: 10px;
-  letter-spacing: 2px;
-
-  transition: 0.35s;
+.choices{display:flex;gap:12px;flex-wrap:wrap}
+.feedback{color:var(--cyan);min-height:55px}
+footer{text-align:center;padding:30px;color:var(--muted);border-top:1px solid var(--line)}
+.progress{height:3px;background:#222}
+.progress span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--purple),var(--cyan))}
+@media(max-width:700px){
+  .grid,.timeline{grid-template-columns:1fr}
+  .orb{width:170px;height:170px}
+  .section{padding:50px 0}
+  .top{padding:10px}
+  .control{padding:6px 9px}
 }
-
-.enter:hover {
-  background: #ead2a9;
-  transform: translateY(-4px);
-}
-
-.arrow {
-  font-size: 16px;
-}
-
-/* BOTTOM */
-
-.bottom {
-  margin-top: 75px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 15px;
-
-  font-size: 9px;
-  letter-spacing: 3px;
-  color: #737d89;
-}
-
-.line {
-  width: 35px;
-  height: 1px;
-  background: #55505a;
-}
-
-/* FOOTER */
-
-footer {
-  position: absolute;
-  bottom: 25px;
-  left: 0;
-  width: 100%;
-  text-align: center;
-  font-size: 9px;
-  letter-spacing: 2px;
-  color: #626b77;
-}
-
-/* MOBILE */
-
-@media (max-width: 600px) {
-
-  header {
-    height: 70px;
-    padding: 0 6%;
-  }
-
-  .hero {
-    min-height: calc(100vh - 70px);
-    padding: 60px 22px;
-  }
-
-  h1 {
-    font-size: 68px;
-    letter-spacing: -2px;
-  }
-
-  .eyebrow {
-    font-size: 9px;
-    letter-spacing: 4px;
-  }
-
-  .description {
-    font-size: 12px;
-  }
-
-  .bottom {
-    margin-top: 60px;
-    font-size: 8px;
-  }
-
-}
-
 </style>
 </head>
 
 <body>
 
-<header>
-
-  <div class="logo">
-    AI MUSEUM
+<header class="top">
+  <a href="#home" class="logo">THE AI <span>MUSEUM</span></a>
+  <div class="controls">
+    <button class="control" id="language">EN</button>
+    <button class="control" id="sound" aria-pressed="false">
+      ♫ <span id="soundLabel">الصوت: OFF</span>
+    </button>
   </div>
-
-  <div class="nav-label">
-    DIGITAL EXHIBITION · 2026
-  </div>
-
 </header>
 
-<main class="hero">
+<div class="progress"><span id="progress"></span></div>
 
-  <div class="light"></div>
+<main>
 
-  <div class="content">
-
-    <div class="eyebrow">
-      A JOURNEY INTO ARTIFICIAL INTELLIGENCE
+<!-- HOME -->
+<section class="hero" id="home">
+  <div>
+    <div class="orb"></div>
+    <div class="eyebrow" data-ar="متحف رقمي تفاعلي" data-en="INTERACTIVE DIGITAL MUSEUM">
+      متحف رقمي تفاعلي
     </div>
-
-    <h1>
-      AI Through
-      <span>My Eyes</span>
-    </h1>
-
-    <p class="description">
-      Behind every discovery lies a new perspective.
-
-      Enter a digital museum where technology,
-      curiosity, and creativity come together
-      to reveal the world of artificial intelligence.
+    <h1>THE AI <span>MUSEUM</span></h1>
+    <h2 data-ar="هل تثق بما تراه؟" data-en="Do You Trust What You See?">
+      هل تثق بما تراه؟
+    </h2>
+    <p class="lead"
+       data-ar="اكتشف كيف يتعلم الذكاء الاصطناعي، وأين يظهر في حياتنا، ولماذا قد تبدو إجاباته مقنعة حتى عندما تخطئ."
+       data-en="Explore how AI learns, where it appears in our lives, and why its answers can sound convincing—even when wrong.">
+      اكتشف كيف يتعلم الذكاء الاصطناعي، وأين يظهر في حياتنا، ولماذا قد تبدو إجاباته مقنعة حتى عندما تخطئ.
     </p>
+    <a class="action" href="#mirror"
+       data-ar="ابدأ استكشاف المتحف ↓"
+       data-en="Enter the Museum ↓">ابدأ استكشاف المتحف ↓</a>
+  </div>
+</section>
 
-    <a href="room1.html" class="enter">
-
-      <span>BEGIN THE EXPERIENCE</span>
-
-      <span class="arrow">↗</span>
-
-    </a>
-
-    <div class="bottom">
-
-      <span class="line"></span>
-
-      <span>FOUR ROOMS · ONE JOURNEY</span>
-
-      <span class="line"></span>
-
-    </div>
-
+<!-- ROOM 1 -->
+<section class="section" id="mirror">
+  <div class="heading">
+    <div class="eyebrow">ROOM 01 / AI IN MY WORDS</div>
+    <h2 data-ar="مرآة الذكاء" data-en="The Mirror">مرآة الذكاء</h2>
+    <p data-ar="كيف أرى الذكاء الاصطناعي؟"
+       data-en="How do I see artificial intelligence?">
+       كيف أرى الذكاء الاصطناعي؟
+    </p>
   </div>
 
-  <footer>
-    EXPLORE · DISCOVER · UNDERSTAND
-  </footer>
+  <div class="mirror">
+    <div class="orb" style="width:120px;height:120px"></div>
+    <h3 data-ar="الذكاء ليس مرآة للإنسان"
+        data-en="Intelligence Is Not a Human Mirror">
+        الذكاء ليس مرآة للإنسان
+    </h3>
+    <p data-ar="بالنسبة لي، الذكاء الاصطناعي هو قدرة الأنظمة الرقمية على التعلم من البيانات، واكتشاف الأنماط، وتنفيذ مهام تحتاج عادةً إلى قدر من الذكاء البشري، مثل فهم اللغة أو تحليل الصور أو تقديم التوصيات. لكنه ليس عقلًا بشريًا داخل جهاز؛ إنه تقنية نصنعها ونوجهها، وتظل نتائجها بحاجة إلى فهمنا وتقييمنا."
+       data-en="To me, AI is the ability of digital systems to learn from data, identify patterns, and perform tasks that usually require aspects of human intelligence, such as language, image analysis, or recommendations. It is not a human mind inside a machine. It is a technology we build and guide, whose outputs still need human evaluation.">
+      بالنسبة لي، الذكاء الاصطناعي هو قدرة الأنظمة الرقمية على التعلم من البيانات، واكتشاف الأنماط، وتنفيذ مهام تحتاج عادةً إلى قدر من الذكاء البشري، مثل فهم اللغة أو تحليل الصور أو تقديم التوصيات. لكنه ليس عقلًا بشريًا داخل جهاز؛ إنه تقنية نصنعها ونوجهها، وتظل نتائجها بحاجة إلى فهمنا وتقييمنا.
+    </p>
+  </div>
+
+  <h3 data-ar="تأمل في الأسئلة التالية" data-en="Explore These Questions">
+    تأمل في الأسئلة التالية
+  </h3>
+
+  <button class="question"
+    data-ar="هل يفكر الذكاء الاصطناعي مثل الإنسان؟"
+    data-en="Does AI think like a human?">
+    هل يفكر الذكاء الاصطناعي مثل الإنسان؟
+  </button>
+  <div class="answer"
+    data-ar="تتعلم الأنظمة أنماطًا من البيانات وتنجز مهامًا، لكن ذلك لا يعني أنها تمتلك تجربة أو وعيًا بشريًا."
+    data-en="AI systems learn patterns from data and perform tasks, but that does not mean they have human experience or consciousness.">
+    تتعلم الأنظمة أنماطًا من البيانات وتنجز مهامًا، لكن ذلك لا يعني أنها تمتلك تجربة أو وعيًا بشريًا.
+  </div>
+
+  <button class="question"
+    data-ar="هل يمكن أن يخطئ رغم إجاباته الواثقة؟"
+    data-en="Can AI be wrong despite sounding confident?">
+    هل يمكن أن يخطئ رغم إجاباته الواثقة؟
+  </button>
+  <div class="answer"
+    data-ar="نعم. الأسلوب الواثق لا يثبت صحة المعلومة؛ تحقق من المعلومات المهمة."
+    data-en="Yes. A confident tone does not prove accuracy. Verify important information.">
+    نعم. الأسلوب الواثق لا يثبت صحة المعلومة؛ تحقق من المعلومات المهمة.
+  </div>
+
+  <button class="question"
+    data-ar="من يوجه استخدام الذكاء الاصطناعي؟"
+    data-en="Who guides AI use?">
+    من يوجه استخدام الذكاء الاصطناعي؟
+  </button>
+  <div class="answer"
+    data-ar="البشر يحددون الأهداف، ويختارون البيانات، ويقيمون النتائج وقرارات الاستخدام."
+    data-en="People set goals, select data, evaluate outputs, and make decisions about use.">
+    البشر يحددون الأهداف، ويختارون البيانات، ويقيمون النتائج وقرارات الاستخدام.
+  </div>
+</section>
+
+<!-- ROOM 2 -->
+<section class="section" id="around">
+  <div class="heading">
+    <div class="eyebrow">ROOM 02 / AI AROUND US</div>
+    <h2 data-ar="آثار غير مرئية" data-en="Invisible Traces">آثار غير مرئية</h2>
+    <p data-ar="ثلاثة تطبيقات نمر بها يوميًا. اضغط على كل قطعة لاكتشاف ما يحدث خلفها."
+       data-en="Three everyday applications. Click each exhibit to discover what happens behind it.">
+      ثلاثة تطبيقات نمر بها يوميًا. اضغط على كل قطعة لاكتشاف ما يحدث خلفها.
+    </p>
+  </div>
+
+  <div class="grid">
+
+    <article class="card">
+      <div class="num">EXHIBIT 01</div>
+      <div class="symbol">◇</div>
+      <h3 data-ar="أنظمة التوصية" data-en="Recommendation Systems">أنظمة التوصية</h3>
+      <p data-ar="تقترح الأفلام والموسيقى بناءً على أنماط النشاط والاهتمامات."
+         data-en="Suggest films and music based on activity patterns and interests.">
+        تقترح الأفلام والموسيقى بناءً على أنماط النشاط والاهتمامات.
+      </p>
+      <button class="btn reveal"
+        data-ar="اكتشف التفاصيل +"
+        data-en="Reveal Details +">اكتشف التفاصيل +</button>
+      <div class="detail"
+        data-ar="تحلل الأنظمة إشارات مثل سجل المشاهدة والتقييمات والتفاعل لتقدير ما قد يفضله المستخدم لاحقًا. مثال: اقتراح فيلم أو قائمة موسيقية."
+        data-en="Systems analyze signals such as watch history, ratings, and engagement to estimate what a user may prefer next. Example: a film or music playlist recommendation.">
+        تحلل الأنظمة إشارات مثل سجل المشاهدة والتقييمات والتفاعل لتقدير ما قد يفضله المستخدم لاحقًا. مثال: اقتراح فيلم أو قائمة موسيقية.
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="num">EXHIBIT 02</div>
+      <div class="symbol">◎</div>
+      <h3 data-ar="الرؤية الحاسوبية" data-en="Computer Vision">الرؤية الحاسوبية</h3>
+      <p data-ar="تحلل الصور والفيديو للتعرف على الأجسام والأنماط البصرية."
+         data-en="Analyzes images and video to identify objects and visual patterns.">
+        تحلل الصور والفيديو للتعرف على الأجسام والأنماط البصرية.
+      </p>
+      <button class="btn reveal"
+        data-ar="اكتشف التفاصيل +"
+        data-en="Reveal Details +">اكتشف التفاصيل +</button>
+      <div class="detail"
+        data-ar="تتعلم نماذج الرؤية من أمثلة بصرية، ثم تستخدم الأنماط المكتسبة لتحليل صور جديدة. قد تساعد في التعرف على الأشياء أو تحليل الصور الطبية."
+        data-en="Vision models learn from visual examples and use learned patterns to analyze new images. They can help recognize objects or analyze medical images.">
+        تتعلم نماذج الرؤية من أمثلة بصرية، ثم تستخدم الأنماط المكتسبة لتحليل صور جديدة. قد تساعد في التعرف على الأشياء أو تحليل الصور الطبية.
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="num">EXHIBIT 03</div>
+      <div class="symbol">✳</div>
+      <h3 data-ar="نماذج اللغة" data-en="Language Models">نماذج اللغة</h3>
+      <p data-ar="تساعد في توليد الأفكار وتلخيص النصوص والترجمة والإجابة عن الأسئلة."
+         data-en="Help brainstorm, summarize text, translate, and answer questions.">
+        تساعد في توليد الأفكار وتلخيص النصوص والترجمة والإجابة عن الأسئلة.
+      </p>
+      <button class="btn reveal"
+        data-ar="اكتشف التفاصيل +"
+        data-en="Reveal Details +">اكتشف التفاصيل +</button>
+      <div class="detail"
+        data-ar="تتعلم نماذج اللغة الأنماط والعلاقات بين الكلمات من بيانات التدريب، وتولد نصًا بحسب السياق. وقد تخطئ، لذا يجب التحقق من المعلومات."
+        data-en="Language models learn patterns and relationships among words from training data and generate text based on context. They can be wrong, so information should be checked.">
+        تتعلم نماذج اللغة الأنماط والعلاقات بين الكلمات من بيانات التدريب، وتولد نصًا بحسب السياق. وقد تخطئ، لذا يجب التحقق من المعلومات.
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- ROOM 3 -->
+<section class="section" id="surprise">
+  <div class="heading">
+    <div class="eyebrow">ROOM 03 / WHAT SURPRISED ME</div>
+    <h2 data-ar="معرض المستحيل" data-en="The Impossible Gallery">معرض المستحيل</h2>
+  </div>
+
+  <article class="card">
+    <div class="num">DISCOVERY 01</div>
+    <h3 data-ar="فخ الثقة" data-en="The Confidence Trap">فخ الثقة</h3>
+    <p data-ar="قد ينتج الذكاء الاصطناعي إجابة منسقة وواثقة لكنها غير دقيقة. لا يكفي الأسلوب للحكم على الحقيقة؛ نحتاج إلى مصدر يمكن التحقق منه."
+       data-en="AI may produce a polished, confident answer that is inaccurate. Style alone cannot establish truth; we need a verifiable source.">
+      قد ينتج الذكاء الاصطناعي إجابة منسقة وواثقة لكنها غير دقيقة. لا يكفي الأسلوب للحكم على الحقيقة؛ نحتاج إلى مصدر يمكن التحقق منه.
+    </p>
+    <button class="btn reveal"
+      data-ar="اعرف أكثر +"
+      data-en="Learn More +">اعرف أكثر +</button>
+    <div class="detail"
+      data-ar="هذا من أسباب أهمية التحقق البشري، خصوصًا في القرارات الحساسة أو المعلومات التي تتغير بمرور الوقت."
+      data-en="This is one reason human verification matters, especially for sensitive decisions or information that changes over time.">
+      هذا من أسباب أهمية التحقق البشري، خصوصًا في القرارات الحساسة أو المعلومات التي تتغير بمرور الوقت.
+    </div>
+  </article>
+</section>
+
+<!-- ROOM 4 -->
+<section class="section" id="helped">
+  <div class="heading">
+    <div class="eyebrow">ROOM 04 / HOW AI HELPED ME</div>
+    <h2 data-ar="الفنان خلف الآلة" data-en="The Artist Behind the Machine">
+      الفنان خلف الآلة
+    </h2>
+  </div>
+
+  <div class="grid">
+    <article class="card">
+      <div class="num">AI TOOL</div>
+      <h3 data-ar="الأداة المستخدمة" data-en="Tool Used">الأداة المستخدمة</h3>
+      <h3>ChatGPT</h3>
+      <p data-ar="للعصف الذهني، وتنظيم المحتوى، واقتراح أفكار للتجربة وصياغة النصوص."
+         data-en="For brainstorming, organizing content, suggesting experience ideas, and drafting text.">
+        للعصف الذهني، وتنظيم المحتوى، واقتراح أفكار للتجربة وصياغة النصوص.
+      </p>
+    </article>
+
+    <article class="card">
+      <div class="num">MY ROLE</div>
+      <h3 data-ar="مساهمتي الشخصية" data-en="My Contribution">مساهمتي الشخصية</h3>
+      <p data-ar="اخترت فكرة المتحف الرقمي وهويته البصرية، ونظمت الغرف، وراجعت المحتوى، وعدلت النصوص والتصميم بما يناسب المهمة."
+         data-en="I chose the digital museum concept and visual identity, organized the rooms, reviewed content, and refined text and design for the task.">
+        اخترت فكرة المتحف الرقمي وهويته البصرية، ونظمت الغرف، وراجعت المحتوى، وعدلت النصوص والتصميم بما يناسب المهمة.
+      </p>
+    </article>
+
+    <article class="card">
+      <div class="num">PROCESS</div>
+      <h3 data-ar="رحلة الإنجاز" data-en="Creation Journey">رحلة الإنجاز</h3>
+      <p data-ar="الفكرة ← البحث ← التصميم ← الاستعانة بالأداة ← المراجعة البشرية ← التجربة النهائية"
+         data-en="Idea → Research → Design → AI assistance → Human review → Final experience">
+        الفكرة ← البحث ← التصميم ← الاستعانة بالأداة ← المراجعة البشرية ← التجربة النهائية
+      </p>
+    </article>
+  </div>
+
+  <p data-ar="ملاحظة: عدلي وصف الأداة ومساهمتك ليطابق ما استخدمته ونفذته فعلًا."
+     data-en="Note: Edit the tool description and contribution to reflect what you actually used and did.">
+    ملاحظة: عدلي وصف الأداة ومساهمتك ليطابق ما استخدمته ونفذته فعلًا.
+  </p>
+</section>
+
+<!-- FINAL CHALLENGE -->
+<section class="section" id="challenge">
+  <div class="heading">
+    <div class="eyebrow">FINAL EXHIBIT</div>
+    <h2 data-ar="هل تستطيع اكتشاف الحقيقة؟"
+        data-en="Can You Spot the Truth?">
+      هل تستطيع اكتشاف الحقيقة؟
+    </h2>
+  </div>
+
+  <div class="challenge">
+    <h3 data-ar="هل الصورة حقيقية أم مولدة بالذكاء الاصطناعي؟"
+        data-en="Is this image real or AI-generated?">
+      هل الصورة حقيقية أم مولدة بالذكاء الاصطناعي؟
+    </h3>
+
+    <p data-ar="اختر إجابتك، ثم اكشف التفسير."
+       data-en="Choose your answer, then reveal the explanation.">
+      اختر إجابتك، ثم اكشف التفسير.
+    </p>
+
+    <div class="choices">
+      <button class="btn choice" data-value="real"
+        data-ar="صورة حقيقية" data-en="Real Image">
+        صورة حقيقية
+      </button>
+
+      <button class="btn choice" data-value="ai"
+        data-ar="مولدة بالذكاء الاصطناعي"
+        data-en="AI-Generated">
+        مولدة بالذكاء الاصطناعي
+      </button>
+    </div>
+
+    <div class="feedback" id="feedback"></div>
+
+    <p data-ar="هذه تجربة توضيحية وليست أداة كشف آلي. لا يمكن الاعتماد على النظر وحده دائمًا لتحديد مصدر الصورة."
+       data-en="This is an educational example, not an automated detector. Visual inspection alone is not always reliable for determining an image's origin.">
+      هذه تجربة توضيحية وليست أداة كشف آلي. لا يمكن الاعتماد على النظر وحده دائمًا لتحديد مصدر الصورة.
+    </p>
+  </div>
+</section>
+
+<!-- SOURCES -->
+<section class="section" id="sources">
+  <div class="heading">
+    <div class="eyebrow">REFERENCES</div>
+    <h2 data-ar="المصادر الأساسية" data-en="Essential Sources">المصادر الأساسية</h2>
+  </div>
+
+  <ul>
+    <li>
+      <a href="https://www.ibm.com/think/topics/artificial-intelligence"
+         target="_blank" rel="noopener">
+        IBM — What is Artificial Intelligence?
+      </a>
+    </li>
+    <li>
+      <a href="https://developers.google.com/machine-learning/crash-course"
+         target="_blank" rel="noopener">
+        Google — Machine Learning Crash Course
+      </a>
+    </li>
+    <li>
+      <a href="https://aiindex.stanford.edu/report/"
+         target="_blank" rel="noopener">
+        Stanford — AI Index Report
+      </a>
+    </li>
+    <li>
+      <a href="https://platform.openai.com/docs"
+         target="_blank" rel="noopener">
+        OpenAI — Documentation
+      </a>
+    </li>
+  </ul>
+</section>
+
+<!-- END -->
+<section class="section" style="text-align:center">
+  <div class="eyebrow">THE END / THE BEGINNING</div>
+  <h2 data-ar="ما الذي ستراه بعد الآن؟"
+      data-en="What Will You See Differently Now?">
+    ما الذي ستراه بعد الآن؟
+  </h2>
+  <p data-ar="قد لا نلاحظ الذكاء الاصطناعي في كل لحظة، لكنه أصبح جزءًا من الطريقة التي نبحث بها، ونشاهد، ونتعلم، ونتفاعل مع العالم. الأهم ليس فقط ما يستطيع الذكاء الاصطناعي فعله، بل كيف نختار استخدامه."
+     data-en="We may not notice AI in every moment, yet it shapes how we search, watch, learn, and interact with the world. What matters is not only what AI can do, but how we choose to use it.">
+    قد لا نلاحظ الذكاء الاصطناعي في كل لحظة، لكنه أصبح جزءًا من الطريقة التي نبحث بها، ونشاهد، ونتعلم، ونتفاعل مع العالم. الأهم ليس فقط ما يستطيع الذكاء الاصطناعي فعله، بل كيف نختار استخدامه.
+  </p>
+  <a href="#home" class="action"
+     data-ar="ابدأ من جديد ↗"
+     data-en="Explore Again ↗">
+    ابدأ من جديد ↗
+  </a>
+</section>
 
 </main>
 
-<div style="text-align:center; padding:30px; margin-top:30px;">
-  <a href="sources.html"
-     style="color:#d7b779; text-decoration:none; letter-spacing:2px; font-size:12px;">
-    EXPLORE THE SOURCES ↗
-  </a>
-</div>
+<footer>
+  THE AI MUSEUM · GDGoC Taif University · AI Through My Eyes
+</footer>
+
+<script>
+/* LANGUAGE */
+let currentLang="ar";
+
+function setLanguage(lang){
+  currentLang=lang;
+
+  document.documentElement.lang=lang;
+  document.documentElement.dir=lang==="ar"?"rtl":"ltr";
+
+  document.querySelectorAll("[data-ar][data-en]").forEach(el=>{
+    el.textContent=el.dataset[lang];
+  });
+
+  document.getElementById("language").textContent=
+    lang==="ar"?"EN":"ع";
+
+  updateSoundLabel();
+}
+
+document.getElementById("language").addEventListener("click",()=>{
+  setLanguage(currentLang==="ar"?"en":"ar");
+});
+
+/* OPTIONAL CLICK SOUNDS */
+let soundEnabled=false;
+let audioContext=null;
+
+function playClick(){
+  if(!soundEnabled)return;
+
+  try{
+    audioContext=audioContext||
+      new(window.AudioContext||window.webkitAudioContext)();
+
+    if(audioContext.state==="suspended"){
+      audioContext.resume();
+    }
+
+    const oscillator=audioContext.createOscillator();
+    const gain=audioContext.createGain();
+
+    oscillator.type="sine";
+    oscillator.frequency.setValueAtTime(
+      720,audioContext.currentTime
+    );
+
+    oscillator.frequency.exponentialRampToValueAtTime(
+      430,audioContext.currentTime+0.05
+    );
+
+    gain.gain.setValueAtTime(
+      0.04,audioContext.currentTime
+    );
+
+    gain.gain.exponentialRampToValueAtTime(
+      0.001,audioContext.currentTime+0.07
+    );
+
+    oscillator.connect(gain);
+    gain.connect(audioContext.destination);
+
+    oscillator.start();
+    oscillator.stop(audioContext.currentTime+0.075);
+
+  }catch(error){
+    console.log("Audio unavailable");
+  }
+}
+
+function updateSoundLabel(){
+  document.getElementById("soundLabel").textContent=
+    currentLang==="ar"
+      ? "الصوت: "+(soundEnabled?"ON":"OFF")
+      : "Sound: "+(soundEnabled?"ON":"OFF");
+}
+
+document.getElementById("sound").addEventListener("click",()=>{
+  soundEnabled=!soundEnabled;
+
+  document.getElementById("sound").classList.toggle(
+    "active",soundEnabled
+  );
+
+  document.getElementById("sound").setAttribute(
+    "aria-pressed",String(soundEnabled)
+  );
+
+  updateSoundLabel();
+
+  if(soundEnabled)playClick();
+});
+
+document.addEventListener("click",event=>{
+  if(event.target.closest("button,a"))playClick();
+});
+
+/* QUESTIONS */
+document.querySelectorAll(".question").forEach(button=>{
+  button.addEventListener("click",()=>{
+    button.classList.toggle("active");
+  });
+});
+
+/* EXHIBIT DETAILS */
+document.querySelectorAll(".reveal").forEach(button=>{
+  button.addEventListener("click",()=>{
+    const card=button.closest(".card");
+    card.classList.toggle("open");
+
+    button.textContent=card.classList.contains("open")
+      ?(currentLang==="ar"?"إخفاء التفاصيل −":"Hide Details −")
+      :(currentLang==="ar"?"اكتشف التفاصيل +":"Reveal Details +");
+  });
+});
+
+/* FINAL CHALLENGE */
+let selectedAnswer=null;
+
+document.querySelectorAll(".choice").forEach(button=>{
+  button.addEventListener("click",()=>{
+    selectedAnswer=button.dataset.value;
+
+    document.querySelectorAll(".choice").forEach(b=>{
+      b.classList.remove("active");
+    });
+
+    button.classList.add("active");
+
+    document.getElementById("feedback").textContent=
+      currentLang==="ar"
+        ?"تم اختيار إجابتك. اضغط على الاختيار مرة أخرى لكشف التفسير."
+        :"Answer selected. Click your choice again to reveal the explanation.";
+
+    if(button.dataset.confirmed==="yes"){
+      revealAnswer();
+    }else{
+      document.querySelectorAll(".choice").forEach(b=>{
+        b.dataset.confirmed="no";
+      });
+
+      button.dataset.confirmed="yes";
+    }
+  });
+});
+
+function revealAnswer(){
+  document.getElementById("feedback").textContent=
+    currentLang==="ar"
+      ?"تذكّر: لا يمكن الجزم بأصل صورة اعتمادًا على الانطباع البصري وحده. تحقق من المصدر والسياق، ولا تعتبر هذا المثال أداة كشف."
+      :"Remember: appearance alone cannot establish an image's origin. Check its source and context; this example is not a detection tool.";
+}
+
+/* PROGRESS */
+const sections=document.querySelectorAll("main section");
+const progress=document.getElementById("progress");
+
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      const index=[...sections].indexOf(entry.target);
+      progress.style.width=
+        ((index+1)/sections.length*100)+"%";
+    }
+  });
+},{threshold:0.2});
+
+sections.forEach(section=>observer.observe(section));
+
+/* INITIAL SETTINGS */
+setLanguage("ar");
+updateSoundLabel();
+</script>
 
 </body>
 </html>
-
